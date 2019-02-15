@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="netuxi">
 <meta property="og:description" content="行列式是线性代数中一个重要的研究对象，作为线性代数中的一个最基本、最常用、最有力的工具，它在数学、物理、力学以及工程技术等各领域中都有者广泛的应用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-15T07:30:20.695Z">
+<meta property="og:updated_time" content="2019-02-15T12:03:42.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性代数一：行列式">
 <meta name="twitter:description" content="行列式是线性代数中一个重要的研究对象，作为线性代数中的一个最基本、最常用、最有力的工具，它在数学、物理、力学以及工程技术等各领域中都有者广泛的应用。">
@@ -375,7 +375,7 @@
 \right.</script><p>的解为</p>
 <script type="math/tex; mode=display">
 x_{1} = \frac{b_{1}a_{22} - b_{2}a_{12}}{a_{11}a_{22}-a_{12}a_{21}} \\
-x_{2} = \frac{a_{11}b_{2} - a_{21}b_{1}}{a_{11}a_{22}-a_{12}a_{21}}</script><p><strong>定义1</strong> 设有$2^2$个数拍成2行2列，记作</p>
+x_{2} = \frac{a_{11}b_{2} - a_{21}b_{1}}{a_{11}a_{22}-a_{12}a_{21}}</script><p><strong>定义1</strong>  设有$2^2$个数拍成2行2列，记作</p>
 <script type="math/tex; mode=display">
 \begin{vmatrix}
 a_{11} & a_{12} \\
@@ -404,8 +404,8 @@ a_{21} & b_{2}
 {\begin{vmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22}
-\end{vmatrix}}.</script><p>其中$D_{i}$是用常数项$b_{1},b_{2}$替换系数行列式D中的第$i$列所得到的二阶行列式$(i=1,2)$。</p>
-<h3 id="三阶行列式"><a href="#三阶行列式" class="headerlink" title="三阶行列式"></a>三阶行列式</h3><p><strong>定义2</strong> 设有$3^{2}$个数排成3行3列，记作</p>
+\end{vmatrix}}.</script><p>其中$D_{i}​$是用常数项$b_{1},b_{2}​$替换系数行列式D中的第$i​$列所得到的二阶行列式$(i=1,2)​$。</p>
+<h3 id="三阶行列式"><a href="#三阶行列式" class="headerlink" title="三阶行列式"></a>三阶行列式</h3><p><strong>定义2</strong>  设有$3^{2}$个数排成3行3列，记作</p>
 <script type="math/tex; mode=display">
 \begin{vmatrix}
   a_{11} & a_{12} & a_{13} \\
@@ -413,12 +413,128 @@ a_{21} & a_{22}
   a_{31} & a_{32} & a_{33}
 \end{vmatrix}
 =a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}-a_{13}a_{22}a_{31}</script><p>上式左边称为三阶行列式，右边称为三阶行列式的展开式。</p>
-<p>三阶行列式的计算可用对角线法则：三阶行列式含有6项，每项为取自不同行不同列的3个元素的乘积，沿$a_{11}a_{22}a_{33}$连线及其平行连线的乘积项带正号，沿$a_{31}a_{22}a_{13}$连线及其平行连线的乘积项带负号。</p>
-<h2 id="n阶行列式"><a href="#n阶行列式" class="headerlink" title="n阶行列式"></a>n阶行列式</h2><h3 id="全排列及其逆序数"><a href="#全排列及其逆序数" class="headerlink" title="全排列及其逆序数"></a>全排列及其逆序数</h3><p><strong>定义3</strong> 由$n​$个不同的元素排成一列，叫做这$n​$个元素的一个全排列（简称排列）。$n​$个不同元素的所有排列种数记为$P_{n}​$。</p>
-<p>从$n$个元素中任取一个放在第一个位置上，有$n$种取法；从剩下的$n-1$个元素中任取一个放在第二个位置上，有$n-1$种取法；······；最后剩下一个元素放在第$n$个位置上只有一种取法，因而</p>
+<p>三阶行列式的计算可用对角线法则：三阶行列式含有6项，每项为取自不同行不同列的3个元素的乘积，沿$a_{11}a_{22}a_{33}​$连线及其平行连线的乘积项带正号，沿$a_{31}a_{22}a_{13}​$连线及其平行连线的乘积项带负号。</p>
+<h2 id="n阶行列式"><a href="#n阶行列式" class="headerlink" title="n阶行列式"></a>n阶行列式</h2><h3 id="全排列及其逆序数"><a href="#全排列及其逆序数" class="headerlink" title="全排列及其逆序数"></a>全排列及其逆序数</h3><p><strong>定义3</strong>  由$n$个不同的元素排成一列，叫做这$n$个元素的一个全排列（简称排列）。$n$个不同元素的所有排列种数记为$P_{n}$。</p>
+<p>从$n​$个元素中任取一个放在第一个位置上，有$n​$种取法；从剩下的$n-1​$个元素中任取一个放在第二个位置上，有$n-1​$种取法；······；最后剩下一个元素放在第$n​$个位置上只有一种取法，因而</p>
 <script type="math/tex; mode=display">
-P_{n}=n \times (n-1) \times \cdots \times 2 \times 1 = n!</script><p>我们称$1,2,\cdots,n$的排列$12 \cdots n$为标准排列（也称自然排列）。</p>
-<h3 id="n阶行列式-1"><a href="#n阶行列式-1" class="headerlink" title="n阶行列式"></a>n阶行列式</h3><h3 id="行列式的性质"><a href="#行列式的性质" class="headerlink" title="行列式的性质"></a>行列式的性质</h3><h3 id="行列式按行（列）展开"><a href="#行列式按行（列）展开" class="headerlink" title="行列式按行（列）展开"></a>行列式按行（列）展开</h3><h2 id="克拉默（Cramer）法则"><a href="#克拉默（Cramer）法则" class="headerlink" title="克拉默（Cramer）法则"></a>克拉默（Cramer）法则</h2>
+P_{n}=n \times (n-1) \times \cdots \times 2 \times 1 = n!</script><p>我们称$1,2,\cdots,n​$的排列$12 \cdots n​$为标准排列（也称自然排列）。</p>
+<p><strong>定义4</strong>  在$1,2,\cdots,n$的排列中，当某两个元素的先后次序与其在标准排列中的次序不同时，称这两个元素构成一个逆序，一个排列中所有逆序的总数称为这个排列的逆序数，逆序数为奇数的排列称为奇排列，逆序数为偶数的排列称为偶排列，标准排列的逆序数为零。</p>
+<p>设 $p_{1}p_{2} \cdots p_{n}​$ 为 $1,2, \cdots ,n​$ 的一个排列，计算排列逆序数的常见方法有以下两种：</p>
+<ul>
+<li>将比元素 $p_{i}​$ 大的且排在 $p_{i}​$ 左边的元素的个数 $t_{i}​$ 作为元素 $p_{i}​$ 的逆序数 $(i=1,2, \cdots,n)​$ 。全体元素的逆序数总和为 $t = t_{1} + t_{2} + \cdots + t_{n}​$，即为这个排列的逆序数。</li>
+<li>将比元素 $p_{i}​$ 小的且排在 $p_{i}​$ 右边的元素个数 $t_{i}​$ 作为元素 $p_{i}​$ 的逆序数 $(i=1,2, \cdots, n)​$ 。</li>
+</ul>
+<p><strong>定义5</strong>  在排列中任意兑换两个元素，其余元素不动，称为一次对换。</p>
+<p><strong>定理1  一个排列经过一次对换，其奇偶性改变。</strong></p>
+<h3 id="n阶行列式-1"><a href="#n阶行列式-1" class="headerlink" title="n阶行列式"></a>n阶行列式</h3><p><strong>定义6 </strong>  设有 $n^{2}$ 个数排成n行n列，记作</p>
+<script type="math/tex; mode=display">
+D=
+\begin{vmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &        & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{vmatrix}
+=
+\sum{(-1)^{t}a_{1p_{1}}a_{2p_{2}} \cdots a_{np_{n}}}</script><p>称为 $n​$ 阶行列式，其中 $t​$ 为列标排列 $p_{1}p_{2} \cdots p_{n}​$ 的逆序数， $\sum​$ 表示对 $1,2, \cdots ,n​$ 的所有排列求和， $n​$ 阶行列式也简记为 $det(a_{ij})​$ ，元素 $a_{ij}​$ 位于第 $i​$ 行第 $j​$ 列。</p>
+<p>因为 $1,2, \cdots ,n​$ 的排列有 $n!​$ 中，所以 $n​$ 阶行列式有 $n!​$ 项，每一项为取自不同行不同列的n个元素的乘积。当该项的行标排列为标准排列时，该项列标排列的奇偶性决定了该项所带的符号，列标为奇排列的项带有负号，列标为偶排列的项带有正号。</p>
+<p>特别地，当 $n=1​$ 时，$\begin{vmatrix} a_{11} \end{vmatrix} = a_{11}​$ 。</p>
+<p>元素 $a_{11},a_{22}, \cdots, a{nn}​$ 所在位置称为主对角线，主对角线以外的元素全为0(即当 $i \neq j​$ 时， $a_{ij}=0​$ )的行列式称为对角行列式；主对角线以下的元素为0(即当 $i &gt; j​$ 时， $a_{ij}=0​$)的行列式称为上三角行列式；主对角线以上的元素为0(即当 $i &lt; j​$ 时， $a_{ij}=0​$)的行列式称为下三角行列式。</p>
+<script type="math/tex; mode=display">
+对角行列式：\quad
+D=
+\begin{vmatrix}
+a_{11} &        &        &        \\
+       & a_{22} &        &        \\
+       &        & \ddots &        \\
+       &        &        & a_{nn} \\
+\end{vmatrix}
+=a_{11}a_{22} \cdots a_{nn}</script><script type="math/tex; mode=display">
+上三角行列式：
+D=
+\begin{vmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+0      & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &        & \vdots \\
+0      & 0      & \cdots & a_{nn} \\
+\end{vmatrix}
+=a_{11}a_{22} \cdots a_{nn}</script><script type="math/tex; mode=display">
+下三角行列式：
+D=
+\begin{vmatrix}
+a_{11} & 0      & \cdots & 0     \\
+a_{21} & a_{22} & \cdots & 0     \\
+\vdots & \vdots &        & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{vmatrix}
+=a_{11}a_{22} \cdots a_{nn}</script><h3 id="行列式的性质"><a href="#行列式的性质" class="headerlink" title="行列式的性质"></a>行列式的性质</h3><p>设 $n​$ 阶行列式</p>
+<script type="math/tex; mode=display">
+D=
+\begin{vmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &        & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{vmatrix}，</script><p>把 $D​$ 的行列互换，所得的行列式称为 $D​$ 的转置行列式，记为 $D^{T}​$ 或 $D^{‘}​$ ，即</p>
+<script type="math/tex; mode=display">
+D^{T}=
+\begin{vmatrix}
+a_{11} & a_{21} & \cdots & a_{n1} \\
+a_{12} & a_{22} & \cdots & a_{n2} \\
+\vdots & \vdots &        & \vdots \\
+a_{1n} & a_{2n} & \cdots & a_{nn} \\
+\end{vmatrix}.</script><p><strong>性质1</strong>  行列式与它的转置行列式相等。</p>
+<p><strong>性质2</strong>  互换行列式的两行（列），行列式变号。</p>
+<p><strong>推论</strong>  如果行列式有两行（列）完全相同，则此行列式等于零。</p>
+<p><strong>性质3</strong>  行列式中某一行（列）的所有元素的公因子可以提到行列式记号的外面。</p>
+<p><strong>推论1</strong>  行列式的某一行（列）所有的元素都乘以同一数 $k$ ，等于用 $k$ 乘以此行列式。</p>
+<p><strong>推论2 </strong> 行列式的某一行（列）的所有元素全为零，则行列式等于零。</p>
+<p><strong>性质4 </strong> 行列式中如果有两行（列）元素成比例，则此行列式等于零。</p>
+<p><strong>性质5 </strong> 若行列式的某一行（列）的元素都是两组数之和，则此行列式等于两个行列式之和。</p>
+<p><strong>性质6</strong>  把行列式的某一行（列）的元素乘以同一数然后加到另一行（列）对应的元素上去，行列式不变。</p>
+<h3 id="行列式按行（列）展开"><a href="#行列式按行（列）展开" class="headerlink" title="行列式按行（列）展开"></a>行列式按行（列）展开</h3><p><strong>定义7</strong>  在 $n$ 阶行列式 $D$ 中划区元素 $a_{ij}$所在的第 $i$ 行和第 $j$ 列，由剩下的元素按原来的位置组成的 $n-1$ 阶行列式，称为元素 $a_{ij}$ 的余子式，记为 $M_{ij}$ ；称 $(-1)^{i+j}M_{ij}$ 为元素 $a_{ij}$ 的代数余子式，记作 $A_{ij}$ ，即 $A_{ij}=(-1)^{i+j}M_{ij}$ 。</p>
+<p><strong>引理  在 $n$ 阶行列式 $D$ 中，若第 $i$ 行除 $a_{ij}$ 外所有元素全为零，则行列式 $D$ 等于元素 $a_{ij}$ 与其代数余子式的乘积，即</strong></p>
+<script type="math/tex; mode=display">
+D=a_{ij}A_{ij}.</script><p><strong>定理2  行列式 $D$ 等于它的任一行（列）的各元素与其对应的代数余子式乘积之和，即</strong></p>
+<script type="math/tex; mode=display">
+D=a_{i1}A_{i1}+a_{i2}A_{i2}+ \cdots + a_{in}A_{in}(i=1,2,\cdots,n) \\
+或\\
+D=a_{1j}A_{1j}+a_{2j}A_{2j}+ \cdots + a_{nj}A_{nj}(j=1,2,\cdots,n)</script><p><strong>推论  行列式某一行（列）的元素与另一行（列）的对应元素的代数余子式乘积之和等于零，即</strong></p>
+<script type="math/tex; mode=display">
+a_{i1}A_{j1}+a_{i2}A_{j2}+\cdots+a_{in}A_{jn}=0(i \neq j)\\
+或\\
+a_{1i}A_{1j}+a_{2i}A_{2j}+\cdots+a_{ni}A_{nj}=0(i \neq j)</script><h2 id="克拉默（Cramer）法则"><a href="#克拉默（Cramer）法则" class="headerlink" title="克拉默（Cramer）法则"></a>克拉默（Cramer）法则</h2><p>设 $n$ 元线性方程组</p>
+<script type="math/tex; mode=display">
+\left\{ 
+  \begin{array}{c}
+    a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}=b_1 \\ 
+    a_{21}x_{1}+a_{22}x_{2}+\cdots+a_{2n}x_{n}=b_2 \\ 
+    \cdots\cdots                                   \\
+    a_{n1}x_{1}+a_{n2}x_{2}+\cdots+a_{nn}x_{n}=b_n \\ 
+  \end{array}
+\right.</script><p>其中未知量 $x{1},x{2},\cdots,x_{n}​$ 的行列式系数为</p>
+<script type="math/tex; mode=display">
+D=
+\begin{vmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &        & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{vmatrix}</script><p><strong>定理3  （克拉默法则）若 $n$ 元线性方程组的系数行列式 $D \neq 0$ ，则它有唯一解，且可以表示为</strong></p>
+<script type="math/tex; mode=display">
+x_{1}=\frac{D_{1}}{D},x_{2}=\frac{D_{2}}{D},\cdots,x_{n}=\frac{D_{n}}{D}</script><p><strong>其中 $D{k}$ 是用常数项 $b_{1},b_{2},\cdots,b_{n}$ 替换系数行列式 $D$ 中的第 $k$ 列所得到的 $n$ 阶行列式（$k=1,2,\cdots,n$）。</strong></p>
+<script type="math/tex; mode=display">
+\left\{ 
+  \begin{array}{c}
+    a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}=b_1 \\ 
+    a_{21}x_{1}+a_{22}x_{2}+\cdots+a_{2n}x_{n}=b_2 \\ 
+    \cdots\cdots                                   \\
+    a_{n1}x_{1}+a_{n2}x_{2}+\cdots+a_{nn}x_{n}=b_n \\ 
+  \end{array}
+\right.</script><p>若常数项 $b_{1},b{2},\cdots,b_{n}$ 不全为零时，上述方程组称为非齐次线性方程组；当常数项$b_{1},b{2},\cdots,b_{n}$ 全为零时，上述方程组称为齐次线性方程组。显然，    齐次线性方程组必有零解： $x_{1}=0,x_{2}=0,\cdots,x_{n}=0$ 。</p>
+<p><strong>定理4  n元齐次线性方程组有非零解的充分必要条件是它的系数行列式 $D=0$ 。</strong></p>
+<p>克拉默法则只适用于方程个数等于未知数个数且系数行列式不等于零的一类线性方程组的求解，而且当 $n$ 很大时，由于需要计算 $n+1$ 个 $n$ 阶行列式，其计算量非常大。因此克拉默法则的重要意义是从理论上揭示了线性方程组的解与系数之间的关系。</p>
+
       
     </div>
     
