@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="netuxi">
 <meta property="og:description" content="行列式是线性代数中一个重要的研究对象，作为线性代数中的一个最基本、最常用、最有力的工具，它在数学、物理、力学以及工程技术等各领域中都有者广泛的应用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-15T07:00:51.665Z">
+<meta property="og:updated_time" content="2019-02-15T07:30:20.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性代数一：行列式">
 <meta name="twitter:description" content="行列式是线性代数中一个重要的研究对象，作为线性代数中的一个最基本、最常用、最有力的工具，它在数学、物理、力学以及工程技术等各领域中都有者广泛的应用。">
@@ -405,7 +405,20 @@ a_{21} & b_{2}
 a_{11} & a_{12} \\
 a_{21} & a_{22}
 \end{vmatrix}}.</script><p>其中$D_{i}$是用常数项$b_{1},b_{2}$替换系数行列式D中的第$i$列所得到的二阶行列式$(i=1,2)$。</p>
-<h3 id="三阶行列式"><a href="#三阶行列式" class="headerlink" title="三阶行列式"></a>三阶行列式</h3><h2 id="n阶行列式"><a href="#n阶行列式" class="headerlink" title="n阶行列式"></a>n阶行列式</h2><h3 id="全排列及其逆序数"><a href="#全排列及其逆序数" class="headerlink" title="全排列及其逆序数"></a>全排列及其逆序数</h3><h3 id="n阶行列式-1"><a href="#n阶行列式-1" class="headerlink" title="n阶行列式"></a>n阶行列式</h3><h3 id="行列式的性质"><a href="#行列式的性质" class="headerlink" title="行列式的性质"></a>行列式的性质</h3><h3 id="行列式按行（列）展开"><a href="#行列式按行（列）展开" class="headerlink" title="行列式按行（列）展开"></a>行列式按行（列）展开</h3><h2 id="克拉默（Cramer）法则"><a href="#克拉默（Cramer）法则" class="headerlink" title="克拉默（Cramer）法则"></a>克拉默（Cramer）法则</h2>
+<h3 id="三阶行列式"><a href="#三阶行列式" class="headerlink" title="三阶行列式"></a>三阶行列式</h3><p><strong>定义2</strong> 设有$3^{2}$个数排成3行3列，记作</p>
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+  a_{11} & a_{12} & a_{13} \\
+  a_{21} & a_{22} & a_{23} \\
+  a_{31} & a_{32} & a_{33}
+\end{vmatrix}
+=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}-a_{13}a_{22}a_{31}</script><p>上式左边称为三阶行列式，右边称为三阶行列式的展开式。</p>
+<p>三阶行列式的计算可用对角线法则：三阶行列式含有6项，每项为取自不同行不同列的3个元素的乘积，沿$a_{11}a_{22}a_{33}$连线及其平行连线的乘积项带正号，沿$a_{31}a_{22}a_{13}$连线及其平行连线的乘积项带负号。</p>
+<h2 id="n阶行列式"><a href="#n阶行列式" class="headerlink" title="n阶行列式"></a>n阶行列式</h2><h3 id="全排列及其逆序数"><a href="#全排列及其逆序数" class="headerlink" title="全排列及其逆序数"></a>全排列及其逆序数</h3><p><strong>定义3</strong> 由$n​$个不同的元素排成一列，叫做这$n​$个元素的一个全排列（简称排列）。$n​$个不同元素的所有排列种数记为$P_{n}​$。</p>
+<p>从$n$个元素中任取一个放在第一个位置上，有$n$种取法；从剩下的$n-1$个元素中任取一个放在第二个位置上，有$n-1$种取法；······；最后剩下一个元素放在第$n$个位置上只有一种取法，因而</p>
+<script type="math/tex; mode=display">
+P_{n}=n \times (n-1) \times \cdots \times 2 \times 1 = n!</script><p>我们称$1,2,\cdots,n$的排列$12 \cdots n$为标准排列（也称自然排列）。</p>
+<h3 id="n阶行列式-1"><a href="#n阶行列式-1" class="headerlink" title="n阶行列式"></a>n阶行列式</h3><h3 id="行列式的性质"><a href="#行列式的性质" class="headerlink" title="行列式的性质"></a>行列式的性质</h3><h3 id="行列式按行（列）展开"><a href="#行列式按行（列）展开" class="headerlink" title="行列式按行（列）展开"></a>行列式按行（列）展开</h3><h2 id="克拉默（Cramer）法则"><a href="#克拉默（Cramer）法则" class="headerlink" title="克拉默（Cramer）法则"></a>克拉默（Cramer）法则</h2>
       
     </div>
     
@@ -519,7 +532,7 @@ a_{21} & a_{22}
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
