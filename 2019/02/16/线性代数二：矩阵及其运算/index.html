@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数学,线性代数,行列式,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="矩阵是线性代数中最重要的概念之一，其理论已逐渐成为数学领域的一个重要分支。">
+<meta name="keywords" content="数学,线性代数,行列式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性代数二：矩阵及其运算">
+<meta property="og:url" content="http://yoursite.com/2019/02/16/线性代数二：矩阵及其运算/index.html">
+<meta property="og:site_name" content="netuxi">
+<meta property="og:description" content="矩阵是线性代数中最重要的概念之一，其理论已逐渐成为数学领域的一个重要分支。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-16T15:39:20.845Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="线性代数二：矩阵及其运算">
+<meta name="twitter:description" content="矩阵是线性代数中最重要的概念之一，其理论已逐渐成为数学领域的一个重要分支。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/16/线性代数二：矩阵及其运算/">
+
+
+
+
+
+  <title>线性代数二：矩阵及其运算 | netuxi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">netuxi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Life is too short.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/16/线性代数二：矩阵及其运算/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="netuxi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="netuxi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">线性代数二：矩阵及其运算</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-16T10:45:16+08:00">
+                2019-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数学/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数学/线性代数/" itemprop="url" rel="index">
+                    <span itemprop="name">线性代数</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>矩阵是线性代数中最重要的概念之一，其理论已逐渐成为数学领域的一个重要分支。</p>
+<a id="more"></a>
+<h2 id="矩阵的定义"><a href="#矩阵的定义" class="headerlink" title="矩阵的定义"></a>矩阵的定义</h2><p><strong>定义1</strong>  设 $m \times n$ 个数 $a_{ij}(i=1,2, \cdots ,m;j=1,2, \cdots, n)$ 排成 $m$ 行 $n$ 列的数表</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &        & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{bmatrix}</script><p>称为 $m$ 行 $n$ 列矩阵，简称 $m \times n$ 矩阵，其中元素 $a_{ij}(i=1,2, \cdots ,m;j=1,2, \cdots ,n;)$ 位于矩阵第 $i$ 行第列 $j$ 列，$m \times n$ 矩阵也可以简记为 $A=(a_{ij})_{m \times n}$ 或 $A_{m \times n}$ 。</p>
+<p>元素是实数的矩阵称为实矩阵，元素是负数的矩阵称为复矩阵。</p>
+<p>当 $m=n$ 时，称 $A$ 为 $n$ 阶方阵，可记为 $A_{n}$ 。</p>
+<p><strong>定义2</strong>  由 $n$ 阶方阵 $A$ 的元素按照原来的的相对位置构成的行列式称为方阵 $A$ 的行列式，记为 $\begin{vmatrix} A \end{vmatrix}$ 或 $det(A)$ 。</p>
+<p>当 $m=1$ 时，称 $A$ 为行矩阵，也称为行向量，为避免元素间混淆，行矩阵也记为</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{1},a_{2}, \cdots ,a_{n}
+\end{bmatrix}
+.</script><p>当 $n=1$ 时，称 $A$ 为列矩阵，也称为列向量，即</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{1}  \\
+a_{2}  \\
+\vdots \\
+a_{m}  \\
+\end{bmatrix}
+.</script><p>$A、B$ 都是 $m \times n$ 矩阵，称它们是同型矩阵。</p>
+<p>若同型矩阵的对应元素相等，即</p>
+<script type="math/tex; mode=display">
+a_{ij} = b_{ij}(i=1,2, \cdots ,m;j=1,2, \cdots ,n),</script><p>称矩阵 $A$ 与矩阵 $B$ 相等，记为 $A = B$ 。</p>
+<p>所有元素为零的矩阵称为零矩阵，记为 $O$ 。不同型的零矩阵是不同的。</p>
+<p>$n$ 阶方阵的元素 $a_{11},a_{22}, \cdots ,a_{nn}$ 所在的位置称为 $A$ 的主对角线。</p>
+<p>主对角线以下的元素为 $0​$ （即当 $i&gt;j​$ 时，$a_{ij}=0;i,j=1,2, \cdots ,n​$）的矩阵称为上三角矩阵。</p>
+<p>主对角线以上的元素为 $0$ （即当 $i&lt;j$ 时，$a_{ij}=0;i,j=1,2, \cdots ,n$）的矩阵称为上三角矩阵。</p>
+<p>主对角线以外的元素全为 $0$ （即当 $i \neq j$ 时，$a_{ij}=0;i,j=1,2, \cdots ,n$）的矩阵称为对角矩阵，简称为对角阵，记为 $A=diag(a_{11},a_{22}, \cdots ,a_{nn})$ 。若 $a_{11}=a_{22}= \cdots =a_{nn}=k$ ，则称此对角矩阵为数量矩阵。若 $k=1$ ，则称此数量矩阵为单位矩阵，简称为单位阵，即</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1      & 0      & \cdots & 0      \\
+0      & 1      & \cdots & 0      \\
+\vdots & \vdots &        & \vdots \\
+0      & 0      & \cdots & 1      \\
+\end{bmatrix}</script><p>记为 $E_{n}$ 或 $I_{n}$ ，简记为 $E$ ，$I$ 。</p>
+<h2 id="矩阵的运算"><a href="#矩阵的运算" class="headerlink" title="矩阵的运算"></a>矩阵的运算</h2><h3 id="矩阵的加法"><a href="#矩阵的加法" class="headerlink" title="矩阵的加法"></a>矩阵的加法</h3><p><strong>定义3</strong>  设有两个 $m \times n$ 矩阵 $A=(a_{ij})_{m \times n}$ ， $B=(b_{ij})_{m \times n}$ ，规定矩阵 $(a_{ij} + b_{ij})_{m \times n}$ 为矩阵 $A$ 与 $B$ 的和，记为 $A+B$ ，即</p>
+<script type="math/tex; mode=display">
+A+B=
+\begin{bmatrix}
+a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\
+a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
+\vdots        & \vdots        &        & \vdots        \\
+a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn} \\
+\end{bmatrix}</script><p>矩阵加法满足：</p>
+<p>（1） $A+B=B+A$</p>
+<p>（2） $(A+B)+C=A+(B+C)$</p>
+<p>（3） $A+O=A$</p>
+<p>（4） $A+(-A)=O$</p>
+<h3 id="数与矩阵的乘法"><a href="#数与矩阵的乘法" class="headerlink" title="数与矩阵的乘法"></a>数与矩阵的乘法</h3><p><strong>定义4</strong>  设矩阵 $A=(a_{ij})_{m \times n}$ ，规定 $(ka_{ij})_{m \times n}$ 为数 $k$ 与矩阵 $A$ 的乘积，记为 $kA$ 或 $Ak$ ，即</p>
+<script type="math/tex; mode=display">
+kA
+=(ka_{ij})_{m \times n}
+=\begin{bmatrix}
+ka_{11} & ka_{12} & \cdots & k_{1n} \\
+ka_{21} & ka_{22} & \cdots & k_{2n} \\
+\vdots  & \vdots  &        & \vdots \\
+ka_{m1} & ka_{m2} & \cdots & k_{mn} \\
+\end{bmatrix}</script><p>上述定义表明数 $k$ 乘以矩阵 $A$ 等于数 $k$ 乘以 $A$ 的所有元素，这是与数乘以行列式的不同之处。</p>
+<p>数与矩阵的乘法满足（其中 $A$ ，$B$ 为矩阵， $k$ ，$l$ 为常数）：</p>
+<p>（1） $(kl)A=k(lA)$</p>
+<p>（2） $(k+l)A=kA+lA$</p>
+<p>（3） $k(A+B)=kA+kB$</p>
+<p>（4） $1A=A$</p>
+<p>（5） $0A=O$</p>
+<p>（6） $k \begin{vmatrix} A \end{vmatrix}=k^{n}\begin{vmatrix} A \end{vmatrix}$ （ $A$ 为 $n$ 阶方阵）。</p>
+<h3 id="矩阵与矩阵的乘法"><a href="#矩阵与矩阵的乘法" class="headerlink" title="矩阵与矩阵的乘法"></a>矩阵与矩阵的乘法</h3><p><strong>定义5</strong>  设 $A=(a_{ij})$ 是一个 $m \times s$ 矩阵，$B=(b_{ij})$ 是一个 $s \times n$ 矩阵，规定矩阵 $A$ 与 $B$ 的乘积是一个 $m \times n$ 矩阵 $C=(c_{ij})$ ，记为 $C=AB$ ，其中</p>
+<script type="math/tex; mode=display">
+c_{ij}
+=a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{is}b_{sj}
+=\sum_{k=1}^{s}{a_{ik}b_{kj}}
+\qquad
+(i=1,2, \cdots ,n)</script><p>由上述定义可知，$1 \times s$ 行矩阵与 $s \times 1$ 列矩阵的乘积是 $1 \times 1$ 矩阵，即为一个数。</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+a_{i1} & a_{i2} & \cdots & a_{is}
+\end{bmatrix}
+\begin{bmatrix}
+b_{1j} \\
+b_{2j} \\
+\vdots \\
+b_{sj} \\
+\end{bmatrix}
+=a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{is}b_{sj}
+=\sum_{k=1}^{s}a_{ik}b_{kj}
+=c_{ij}</script><p>从定义中可以看出矩阵乘法的两个要点：</p>
+<p>（1）只有当 $A$ 的列数等于 $B$ 的行数时，$AB$ 才有意义；且 $AB$ 的行数等于 $A$ 的行数，而 $AB$ 的列数等于 $B$ 的列数</p>
+<p>（2）乘积 $AB$ 的第 $i$ 行第 $j$ 列元素 $c_{ij}$ 等于 $A$ 的第 $i$ 行与 $B$ 的第 $j$ 列对应元素的乘积之和</p>
+<p>对于矩阵的乘法，下述几点要注意：</p>
+<p>（1）矩阵 $A \times B$ 不一定等于 $B \times A$ </p>
+<p>（2）不能由 $AB=O$ 得出 $A=O$ 或 $B=O$</p>
+<p>（3）不能由 $BA=BC，B \neq O$ 得出 $A \neq C$</p>
+<p>矩阵的乘法虽然不满足交换律，担任然满足（其中 $A,B$ 为矩阵，$k$ 为常数）：</p>
+<p>（1） $(AB)C=A(BC)$</p>
+<p>（2） $(kA)B=A(kB)=kAB$</p>
+<p>（3）A(B+C)=AB+AC，(A+B)C=AC+BC</p>
+<p>（4）$\begin{vmatrix} AB \end{vmatrix}=\begin{vmatrix} A \end{vmatrix}\begin{vmatrix} B \end{vmatrix}$ （A，B为同阶方阵）</p>
+<p>若 $A,B$ 为 $n$ 阶方阵，通常 $AB \neq BA$ ，然而总有 $\begin{vmatrix} AB \end{vmatrix} = \begin{vmatrix} A \end{vmatrix}\begin{vmatrix} B \end{vmatrix} $ 成立。由 $AB=O$ 不能得出 $A=O$ 或 $B=O$ ，但是由 $\begin{vmatrix} AB \end{vmatrix} = 0$ 可以得出 $\begin{vmatrix} A \end{vmatrix} = 0$ 或 $\begin{vmatrix} B \end{vmatrix} = 0$ 。</p>
+<h3 id="方阵的乘幂"><a href="#方阵的乘幂" class="headerlink" title="方阵的乘幂"></a>方阵的乘幂</h3><p><strong>定义6</strong>  设 $A$ 为 $n$ 阶方阵，$k$ 为正整数，称 $k$ 个 $A$ 的乘积为 $A$ 的 $k$ 的乘幂，简称为 $A$ 的 $k$ 次幂，记为 $A^{k}$ 。</p>
+<script type="math/tex; mode=display">
+A^{k} = \underbrace{AA \cdots A}_{k个A}</script><p>可以验证方阵的乘幂满足（其中 $A$ 为方阵，$k、l$ 为正整数）：</p>
+<p>（1） $A^{k}A^{l} = A^{k+l}$</p>
+<p>（2） $(A^{k})^{l} = A^{kl}$</p>
+<p>（3） $\begin{vmatrix} A^{k} \end{vmatrix} = {\begin{vmatrix} A \end{vmatrix}}^{k}$</p>
+<p>设 $\varphi (x) = a_{0} + a_{1}x + a_{2}x^{2} + \cdots + a_{m}x^{m}$ 为$x$ 的 $m$ 次多项式， $A$ 为 $n$ 阶方阵，记 $\varphi (A) = a_{0}E + a_{1}A + a_{2}A^{2} + \cdots + a_{m}A^{m}$ ，称 $\varphi (A)$ 为方阵 $A$ 的 $m$ 次多项式。</p>
+<p>对于 $n$ 阶方阵 $A$ 与 $B$ ，若 $AB=BA$ ，则称方阵 $A$ 与 $B$  是可以交换的，容易验证数量矩阵与任何同阶方阵都是可以交换的。</p>
+<p>因为矩阵乘法一般不满足交换律，所以对于 $n​$ 阶方阵 $A​$ 与 $B​$ ，一般 $(AB)^{k} \neq A^{k}B^{k}​$ ，只有当 $A​$ 与 $B​$ 是可交换的时，才有 $(AB)^{k} = A^{k}B^{k}​$ 。同理，易证，$(A+B)^{2} = A^{2} + 2AB + B^{2}、(A+B)(A-B) = A^{2} -B^{2}​$ 成立的充分必要条件是 $AB=BA​$ 。</p>
+<h3 id="矩阵的转置"><a href="#矩阵的转置" class="headerlink" title="矩阵的转置"></a>矩阵的转置</h3><p><strong>定义7</strong>  把矩阵 $A$ 的行列一次互换，所得到的矩阵称为 $A$ 的转置矩阵，记为 $A^{T}$ 或 $A^{‘}$ 。即若 $A=(a_{ij})_{m \times n}$ ，则有 $A^{T} = (a_{ji})_{n \times m}$ 。</p>
+<p>矩阵的转置作为一种运算，满足（其中 $A$ 、$B$ 为矩阵，$k$ 为常数）：</p>
+<p>（1） $(A^{T})^{T} = A$</p>
+<p>（2） $(A+B)^{T} = A^{T} + B^{T}$</p>
+<p>（3） $(kA)^{T} = kA^{T}$</p>
+<p>（4） $(AB)^{T} = B^{T} A^{T}$</p>
+<p>（5） $\begin{vmatrix} A^{T} \end{vmatrix} = \begin{vmatrix} A \end{vmatrix}$ （ $A$ 为方阵）</p>
+<p><strong>定义8</strong>  设 $A$ 为 $n$ 阶方阵，若 $A^{T} = A$ ，即 $a_{ij} = a_{ji}（i,j = 1,2, \cdots ,n）$ ，则 $A$ 称为对称矩阵，简称对矩阵；若 $A^{T} = -A$ ，即 $a_{ij} = -a_{ji}（i,j = 1,2, \cdots ,n）$ ，则 $A$ 称为反对称矩阵。</p>
+<p>对于任一矩阵 $A$ ，容易验证矩阵 $AA^{T}$ ，$A^{T}A$ 都是对称矩阵。</p>
+<p>若$A$ 、 $B$ 都是 $n$ 阶对称矩阵， $AB$ 不一定是堆成矩阵，因为 $(A^{T}B^{T}) = B^{T}A^{T}=BA$ ，而通常 $A \neq B$ 。</p>
+<h2 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h2><h2 id="分块矩阵"><a href="#分块矩阵" class="headerlink" title="分块矩阵"></a>分块矩阵</h2><h3 id="分块矩阵-1"><a href="#分块矩阵-1" class="headerlink" title="分块矩阵"></a>分块矩阵</h3><h3 id="分块矩阵的乘法"><a href="#分块矩阵的乘法" class="headerlink" title="分块矩阵的乘法"></a>分块矩阵的乘法</h3><h3 id="分块对角矩阵"><a href="#分块对角矩阵" class="headerlink" title="分块对角矩阵"></a>分块对角矩阵</h3><h2 id="矩阵的初等变换"><a href="#矩阵的初等变换" class="headerlink" title="矩阵的初等变换"></a>矩阵的初等变换</h2><h3 id="矩阵的初等变换-1"><a href="#矩阵的初等变换-1" class="headerlink" title="矩阵的初等变换"></a>矩阵的初等变换</h3><h3 id="初等矩阵"><a href="#初等矩阵" class="headerlink" title="初等矩阵"></a>初等矩阵</h3><h3 id="用初等变换求逆矩阵"><a href="#用初等变换求逆矩阵" class="headerlink" title="用初等变换求逆矩阵"></a>用初等变换求逆矩阵</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/线性代数/" rel="tag"># 线性代数</a>
+          
+            <a href="/tags/行列式/" rel="tag"># 行列式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/15/线性代数一：行列式/" rel="next" title="线性代数一：行列式">
+                <i class="fa fa-chevron-left"></i> 线性代数一：行列式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">netuxi</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/netuxi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:820256744@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的定义"><span class="nav-number">1.</span> <span class="nav-text">矩阵的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的运算"><span class="nav-number">2.</span> <span class="nav-text">矩阵的运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的加法"><span class="nav-number">2.1.</span> <span class="nav-text">矩阵的加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数与矩阵的乘法"><span class="nav-number">2.2.</span> <span class="nav-text">数与矩阵的乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵与矩阵的乘法"><span class="nav-number">2.3.</span> <span class="nav-text">矩阵与矩阵的乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方阵的乘幂"><span class="nav-number">2.4.</span> <span class="nav-text">方阵的乘幂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的转置"><span class="nav-number">2.5.</span> <span class="nav-text">矩阵的转置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逆矩阵"><span class="nav-number">3.</span> <span class="nav-text">逆矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分块矩阵"><span class="nav-number">4.</span> <span class="nav-text">分块矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分块矩阵-1"><span class="nav-number">4.1.</span> <span class="nav-text">分块矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分块矩阵的乘法"><span class="nav-number">4.2.</span> <span class="nav-text">分块矩阵的乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分块对角矩阵"><span class="nav-number">4.3.</span> <span class="nav-text">分块对角矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的初等变换"><span class="nav-number">5.</span> <span class="nav-text">矩阵的初等变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的初等变换-1"><span class="nav-number">5.1.</span> <span class="nav-text">矩阵的初等变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初等矩阵"><span class="nav-number">5.2.</span> <span class="nav-text">初等矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用初等变换求逆矩阵"><span class="nav-number">5.3.</span> <span class="nav-text">用初等变换求逆矩阵</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">netuxi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
