@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="netuxi">
 <meta property="og:description" content="矩阵是线性代数中最重要的概念之一，其理论已逐渐成为数学领域的一个重要分支。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-16T15:39:20.845Z">
+<meta property="og:updated_time" content="2019-02-17T14:23:18.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性代数二：矩阵及其运算">
 <meta name="twitter:description" content="矩阵是线性代数中最重要的概念之一，其理论已逐渐成为数学领域的一个重要分支。">
@@ -373,7 +373,7 @@ a_{11} & a_{12} & \cdots & a_{1n} \\
 a_{21} & a_{22} & \cdots & a_{2n} \\
 \vdots & \vdots &        & \vdots \\
 a_{m1} & a_{m2} & \cdots & a_{mn} \\
-\end{bmatrix}</script><p>称为 $m$ 行 $n$ 列矩阵，简称 $m \times n$ 矩阵，其中元素 $a_{ij}(i=1,2, \cdots ,m;j=1,2, \cdots ,n;)$ 位于矩阵第 $i$ 行第列 $j$ 列，$m \times n$ 矩阵也可以简记为 $A=(a_{ij})_{m \times n}$ 或 $A_{m \times n}$ 。</p>
+\end{bmatrix}</script><p>称为 $m​$ 行 $n​$ 列矩阵，简称 $m \times n​$ 矩阵，其中元素 $a_{ij}(i=1,2, \cdots ,m;j=1,2, \cdots ,n;)​$ 位于矩阵第 $i​$ 行第列 $j​$ 列，$m \times n​$ 矩阵也可以简记为 $A=(a_{ij})_{m \times n}​$ 或 $A_{m \times n}​$ 。</p>
 <p>元素是实数的矩阵称为实矩阵，元素是负数的矩阵称为复矩阵。</p>
 <p>当 $m=n$ 时，称 $A$ 为 $n$ 阶方阵，可记为 $A_{n}$ 。</p>
 <p><strong>定义2</strong>  由 $n$ 阶方阵 $A$ 的元素按照原来的的相对位置构成的行列式称为方阵 $A$ 的行列式，记为 $\begin{vmatrix} A \end{vmatrix}$ 或 $det(A)$ 。</p>
@@ -470,6 +470,40 @@ b_{sj} \\
 <p>（3）A(B+C)=AB+AC，(A+B)C=AC+BC</p>
 <p>（4）$\begin{vmatrix} AB \end{vmatrix}=\begin{vmatrix} A \end{vmatrix}\begin{vmatrix} B \end{vmatrix}$ （A，B为同阶方阵）</p>
 <p>若 $A,B$ 为 $n$ 阶方阵，通常 $AB \neq BA$ ，然而总有 $\begin{vmatrix} AB \end{vmatrix} = \begin{vmatrix} A \end{vmatrix}\begin{vmatrix} B \end{vmatrix} $ 成立。由 $AB=O$ 不能得出 $A=O$ 或 $B=O$ ，但是由 $\begin{vmatrix} AB \end{vmatrix} = 0$ 可以得出 $\begin{vmatrix} A \end{vmatrix} = 0$ 或 $\begin{vmatrix} B \end{vmatrix} = 0$ 。</p>
+<p>当我们定义了矩阵与矩阵的乘法，$m$ 个方程 $n$ 个未知数的线性方程组也可以用矩阵与矩阵相乘来表示。</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{array}{c}
+a_{11}x_{1} + a_{12}x_{2} + \cdots + a_{1n}x_{n} = b_{1} \\
+a_{21}x_{1} + a_{22}x_{2} + \cdots + a_{2n}x_{n} = b_{1} \\
+\cdots                                                   \\
+a_{m1}x_{1} + a_{m2}x_{2} + \cdots + a_{mn}x_{n} = b_{1} \\
+\end{array}
+\right.</script><p>记</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &        & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{bmatrix}
+\quad
+\bf x=
+\begin{bmatrix}
+x_{1}  \\
+x_{2}  \\
+\vdots \\
+x_{n}  \\
+\end{bmatrix}
+\quad
+\bf b=
+\begin{bmatrix}
+b_{1}  \\
+b_{2}  \\
+\vdots \\
+b_{m}  \\
+\end{bmatrix}</script><p>利用矩阵的乘法，线性方程组可以写成矩阵的形式 $A \bf x= \bf b$</p>
 <h3 id="方阵的乘幂"><a href="#方阵的乘幂" class="headerlink" title="方阵的乘幂"></a>方阵的乘幂</h3><p><strong>定义6</strong>  设 $A$ 为 $n$ 阶方阵，$k$ 为正整数，称 $k$ 个 $A$ 的乘积为 $A$ 的 $k$ 的乘幂，简称为 $A$ 的 $k$ 次幂，记为 $A^{k}$ 。</p>
 <script type="math/tex; mode=display">
 A^{k} = \underbrace{AA \cdots A}_{k个A}</script><p>可以验证方阵的乘幂满足（其中 $A$ 为方阵，$k、l$ 为正整数）：</p>
@@ -489,7 +523,289 @@ A^{k} = \underbrace{AA \cdots A}_{k个A}</script><p>可以验证方阵的乘幂�
 <p><strong>定义8</strong>  设 $A$ 为 $n$ 阶方阵，若 $A^{T} = A$ ，即 $a_{ij} = a_{ji}（i,j = 1,2, \cdots ,n）$ ，则 $A$ 称为对称矩阵，简称对矩阵；若 $A^{T} = -A$ ，即 $a_{ij} = -a_{ji}（i,j = 1,2, \cdots ,n）$ ，则 $A$ 称为反对称矩阵。</p>
 <p>对于任一矩阵 $A$ ，容易验证矩阵 $AA^{T}$ ，$A^{T}A$ 都是对称矩阵。</p>
 <p>若$A$ 、 $B$ 都是 $n$ 阶对称矩阵， $AB$ 不一定是堆成矩阵，因为 $(A^{T}B^{T}) = B^{T}A^{T}=BA$ ，而通常 $A \neq B$ 。</p>
-<h2 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h2><h2 id="分块矩阵"><a href="#分块矩阵" class="headerlink" title="分块矩阵"></a>分块矩阵</h2><h3 id="分块矩阵-1"><a href="#分块矩阵-1" class="headerlink" title="分块矩阵"></a>分块矩阵</h3><h3 id="分块矩阵的乘法"><a href="#分块矩阵的乘法" class="headerlink" title="分块矩阵的乘法"></a>分块矩阵的乘法</h3><h3 id="分块对角矩阵"><a href="#分块对角矩阵" class="headerlink" title="分块对角矩阵"></a>分块对角矩阵</h3><h2 id="矩阵的初等变换"><a href="#矩阵的初等变换" class="headerlink" title="矩阵的初等变换"></a>矩阵的初等变换</h2><h3 id="矩阵的初等变换-1"><a href="#矩阵的初等变换-1" class="headerlink" title="矩阵的初等变换"></a>矩阵的初等变换</h3><h3 id="初等矩阵"><a href="#初等矩阵" class="headerlink" title="初等矩阵"></a>初等矩阵</h3><h3 id="用初等变换求逆矩阵"><a href="#用初等变换求逆矩阵" class="headerlink" title="用初等变换求逆矩阵"></a>用初等变换求逆矩阵</h3>
+<h2 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h2><p><strong>定义9</strong>  对于 $n$ 阶方阵了$A$ ，如果有一个 $n$ 阶方阵 $B$ ，使 $AB=BA=E$ ，则称 $A$ 为可逆方阵，并把矩阵 $B$ 称为 $A$ 的逆矩阵，简称逆阵，记作 $A^{-1}$ ，于是 $AA^{-1}=A^{-1}A=E$ 。</p>
+<p>由上述定义可知零矩阵不可逆，单位矩阵 $E$ 可逆，且 $E^{-}=E$ ，因为 $EE=E$ 。</p>
+<p>如果 $A$ 为可逆矩阵，那么 $A$ 的逆矩阵是唯一的。假设 $B$ 和 $C$ 都是 $A$ 的逆矩阵，则有 $AB=BA=E \quad  AC=CA=E$ ，于是 $B=BE=BAC=EC=C$ 。</p>
+<p><strong>定理1</strong>  n阶方阵 $A=a_{ij}​$ 可逆的充分必要条件是 $\begin{vmatrix} A\end{vmatrix} \neq 0​$ ，且</p>
+<script type="math/tex; mode=display">
+A^{-1} = \frac{A^{*}}{\begin{vmatrix} A \end{vmatrix}}</script><p>其中</p>
+<script type="math/tex; mode=display">
+A^{*}
+=
+\begin{bmatrix}
+A_{11} & A_{12} & \cdots & A_{1n} \\
+A_{21} & A_{22} & \cdots & A_{2n} \\
+\vdots & \vdots &        & \vdots \\
+A_{n1} & A_{n2} & \cdots & A_{nn} \\
+\end{bmatrix}</script><p>称为 $A$ 的伴随矩阵，$A_{ij}$ 是行列式 $\begin{vmatrix} A\end{vmatrix}$ 种元素 $a_{ij}$ 的代数余子式（$i,j=1,2, \cdots , n$） 。</p>
+<p><strong>定义10</strong>  设 $A$ 为 $n$ 阶方阵，若 $\begin{vmatrix} A \end{vmatrix}=0$ ，则称 $A$ 为奇异矩阵；若 $\begin{vmatrix} A \end{vmatrix} \neq 0$ ，则称 $A$ 为非奇异矩阵。</p>
+<p><strong>推论  对于方阵 $A​$ 、$B​$ ，若AB=E，则BA=E，反之亦然，即有 $B=A^{-1}​$</strong> 。</p>
+<p>方阵的逆矩阵运算满足下列运算规律：</p>
+<p>（1）若 $A​$ 可逆，则 $A^{-1}​$ 可逆，且 $(A^{-1})^{-1}=A​$</p>
+<p>（2） $k \neq 0​$ 且 $A​$ 可逆是 $kA​$ 的充分必要条件，且 $(kA)^{-1}=\frac{1}{k} A^{-1}​$</p>
+<p>（3）$n​$ 阶方阵 $A​$ 与 $B​$ 都可逆是 $AB​$ 可逆的充分必要条件，且 $(AB)^{-1} = B^{-1}A^{-1}​$</p>
+<p>（4）若 $A$ 可逆，则 $A^{T}$ 可逆，且 $(A^{T})^{-1} = (A^{-1})^{T}$</p>
+<h2 id="分块矩阵"><a href="#分块矩阵" class="headerlink" title="分块矩阵"></a>分块矩阵</h2><p>对于行数和列数比较高的矩阵 $A$ ，在计算过程中经常采用“矩阵分块法”。这种方法就是将矩阵 $A$ 用若干条纵线和横线分成许多个小矩阵，每个小矩阵称为矩阵 $A$ 的子块。这样，可以将高阶矩阵 $A$ 的运算简化为低阶矩阵的运算。</p>
+<h3 id="分块矩阵-1"><a href="#分块矩阵-1" class="headerlink" title="分块矩阵"></a>分块矩阵</h3><p>设矩阵</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+\end{bmatrix}</script><p>则称矩阵 $A$ 可如下分块</p>
+<script type="math/tex; mode=display">
+A=
+\left[
+  \begin{array}{cc|cc}
+    a_{11} & a_{12} & a_{13} & a_{14}\\
+    a_{21} & a_{22} & a_{23} & a_{24}\\
+    \hline
+    a_{31} & a_{32} & a_{33} & a_{34}\\
+  \end{array}
+\right]
+=
+\left[
+  \begin{array}{}
+   A_{11} & A_{12} \\
+   A_{11} & A_{12} \\
+  \end{array}
+\right]</script><p>其中</p>
+<script type="math/tex; mode=display">
+A_{11}=
+\begin{bmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{bmatrix}
+
+A_{12}=
+\begin{bmatrix}
+a_{13} & a_{14} \\
+a_{23} & a_{24} \\
+\end{bmatrix}
+
+A_{21}=
+\begin{bmatrix}
+a_{31} & a_{32} \\
+\end{bmatrix}
+
+A_{22}=
+\begin{bmatrix}
+a_{33} & a_{34} \\
+\end{bmatrix}</script><p>矩阵分块的形式是多种多样的，矩阵 $A$ 也可以如下分块</p>
+<script type="math/tex; mode=display">
+A=
+\left[
+  \begin{array}{c|cc|c}
+    a_{11} & a_{12} & a_{13} & a_{14}\\
+    \hline
+    a_{21} & a_{22} & a_{23} & a_{24}\\
+    a_{31} & a_{32} & a_{33} & a_{34}\\
+  \end{array}
+\right]</script><p>设矩阵</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &        & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{bmatrix}</script><p>记 $A$ 的第 $i$ 行为</p>
+<script type="math/tex; mode=display">
+\alpha_{i}^{T}=
+\begin{bmatrix}
+a_{i1},a_{i2}, \cdots, a_{in}
+\end{bmatrix}
+\quad
+（i=1,2, \cdots , m）</script><p>则</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+{\alpha}_{1}^{T} \\
+{\alpha}_{2}^{T} \\
+\vdots           \\
+{\alpha}_{m}^{T} \\
+\end{bmatrix}</script><p>记 $A$ 的第 $j$ 列为</p>
+<script type="math/tex; mode=display">
+{\beta}_{j}=
+\begin{bmatrix}
+a_{1j} \\
+a_{2j} \\
+\vdots \\
+a_{mj} \\
+\end{bmatrix}
+\quad
+（i=1,2, \cdots , n）</script><p>则</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+{\beta}_{1},{\beta}_{2}, \cdots ,{\beta}_{n}
+\end{bmatrix}</script><h3 id="分块矩阵的运算"><a href="#分块矩阵的运算" class="headerlink" title="分块矩阵的运算"></a>分块矩阵的运算</h3><h4 id="分块矩阵的加法"><a href="#分块矩阵的加法" class="headerlink" title="分块矩阵的加法"></a>分块矩阵的加法</h4><p>设矩阵 $A$ 与 $B$ 的行数相同、列数相同，采用相同的分块法，</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+A_{11} & \cdots & A_{1s} \\
+\vdots &        & \vdots \\
+A_{r1} & \cdots & A_{rs} \\
+\end{bmatrix}
+\quad
+B=
+\begin{bmatrix}
+B_{11} & \cdots & B_{1s} \\
+\vdots &        & \vdots \\
+B_{r1} & \cdots & B_{rs} \\
+\end{bmatrix}</script><p>其中 $A_{ij}$ 与 $B_{ij}$ 的行数、列数相同 （$i=1,2, \cdots , r;j=1,2, \cdots ,s$），则</p>
+<script type="math/tex; mode=display">
+A+B
+=
+\begin{bmatrix}
+A_{11}+B_{11} & \cdots & A_{1s}+B_{1s} \\
+\vdots        &        & \vdots        \\
+A_{r1}+B_{r1} & \cdots & A_{rs}+B_{rs} \\
+\end{bmatrix}</script><p>同型矩阵相加时分块法相同的对应子块相加。</p>
+<h4 id="分块矩阵的数乘"><a href="#分块矩阵的数乘" class="headerlink" title="分块矩阵的数乘"></a>分块矩阵的数乘</h4><p>设分块矩阵</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+A_{11} & \cdots & A_{1s} \\
+\vdots &        & \vdots \\
+A_{r1} & \cdots & A_{rs} \\
+\end{bmatrix}</script><p>则</p>
+<script type="math/tex; mode=display">
+kA=
+\begin{bmatrix}
+kA_{11} & \cdots & kA_{1s} \\
+\vdots &        & \vdots \\
+kA_{r1} & \cdots & kA_{rs} \\
+\end{bmatrix}</script><p>用数 $k$ 乘分块矩阵 $A$ 等于用数 $k$ 乘 $A$ 的每个子块。</p>
+<h4 id="分块矩阵的乘法"><a href="#分块矩阵的乘法" class="headerlink" title="分块矩阵的乘法"></a>分块矩阵的乘法</h4><p>设 $A$ 为 $m \times p$ 矩阵， $B$ 为 $p \times n$ 矩阵，将 $A$ 和 $B$ 进行分块，使对 $A$ 的列的分法与对 $B$ 的行的分发相同：</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+A_{11} & \cdots & A_{1s} \\
+\cdots &        & \cdots \\
+A_{r1} & \cdots & A_{rs} \\
+\end{bmatrix}
+
+\quad
+
+B=
+\begin{bmatrix}
+B_{11} & \cdots & B_{1t} \\
+\cdots &        & \cdots \\
+B_{s1} & \cdots & B_{st} \\
+\end{bmatrix}</script><p>其中 $A_i1,A_i2 , \cdots ,A_is$ 矩阵的列数分别等于 $B_1j,B_2j , \cdots ,B_sj$ 的行数（$i=1,2, \cdots ,r;j=1,2, \cdots ,t$），则</p>
+<script type="math/tex; mode=display">
+AB=
+\begin{bmatrix}
+C_{11} & \cdots & C_{1t} \\
+\vdots &        & \vdots \\
+C_{r1} & \cdots & C_{rt} \\
+\end{bmatrix}</script><p>其中 $C_{ij}=A_{i1}B_{1j} + \cdots + A_{is}B_{sj}（i=1,2, \cdots ,r;j=1,2, \cdots ,t）$ 。</p>
+<p>分矩阵块相乘时以子块为元素按普通矩阵乘法法则运算。</p>
+<h4 id="分块矩阵的转置"><a href="#分块矩阵的转置" class="headerlink" title="分块矩阵的转置"></a>分块矩阵的转置</h4><p>设分块矩阵</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+A_{11} & \cdots & A_{1s} \\
+\vdots &        & \vdots \\
+A_{r1} & \cdots & A_{rs} \\
+\end{bmatrix}</script><p>则</p>
+<script type="math/tex; mode=display">
+A^{T}=
+\begin{bmatrix}
+A_{11}^{T} & \cdots & A_{r1}^{T} \\
+\vdots &        & \vdots \\
+A_{1s}^{T} & \cdots & A_{rs}^{T} \\
+\end{bmatrix}</script><h3 id="分块对角矩阵"><a href="#分块对角矩阵" class="headerlink" title="分块对角矩阵"></a>分块对角矩阵</h3><p>设分块对角矩阵</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+A_{1}  & O      & \cdots & O      \\
+O      & A_{2}  & \cdots & O      \\
+\vdots & \vdots &        & \vdots \\
+O      & O      & \cdots & A_{s}  \\
+\end{bmatrix}</script><p>其中 $A_{i}（i=1,2, \cdots ,s）$ 都是方阵，则称方阵 $A$ 为分块对角阵或准对角阵。</p>
+<p>若</p>
+<script type="math/tex; mode=display">
+B=
+\begin{bmatrix}
+B_{1}  & O      & \cdots & O      \\
+O      & B_{2}  & \cdots & O      \\
+\vdots & \vdots &        & \vdots \\
+O      & O      & \cdots & B_{s}  \\
+\end{bmatrix}</script><p>其中 $B_{i}$ 与 $A_{i}$ 的阶数相同 （$i=1,2, \cdots ,s$），则</p>
+<script type="math/tex; mode=display">
+A+B=
+\begin{bmatrix}
+A_{1}B_{1} & O          & \cdots & O          \\
+O          & A_{2}B_{2} & \cdots & O          \\
+\vdots     & \vdots     &        & \vdots     \\
+O          & O          & \cdots & A_{s}B_{s} \\
+\end{bmatrix}</script><p>由于 $\begin{vmatrix} A \end{vmatrix} = \begin{vmatrix} A_{1} \end{vmatrix} \begin{vmatrix} A_{2} \end{vmatrix} \cdots \begin{vmatrix} A_{s} \end{vmatrix}$ ，所以分块矩阵 $A$ 可逆的充分条件是 $A_{i}$ 都是可逆方阵（$i=1,2, \cdots ,s$），且</p>
+<script type="math/tex; mode=display">
+A^{-1}=
+\begin{bmatrix}
+A_{1}^{-1} & O          & \cdots & O          \\
+O          & A_{2}^{-1} & \cdots & O          \\
+\vdots     & \vdots     &        & \vdots     \\
+O          & O          & \cdots & A_{s}^{-1} \\
+\end{bmatrix}</script><h2 id="矩阵的初等变换"><a href="#矩阵的初等变换" class="headerlink" title="矩阵的初等变换"></a>矩阵的初等变换</h2><h3 id="矩阵的初等变换-1"><a href="#矩阵的初等变换-1" class="headerlink" title="矩阵的初等变换"></a>矩阵的初等变换</h3><p><strong>定义11</strong>  对矩阵施行下列三种变换：</p>
+<p>（1）互换矩阵中的任意两行（列），记为 $r_{i} \leftrightarrow r_{j}$ 或 $c_{i} \leftrightarrow c_{j}$</p>
+<p>（2）用一个非零常数 $k$ 乘以矩阵的某一个行（列），记为 $kr_{i}$ 或 $kc_{j}$</p>
+<p>（3）用一个常数乘以矩阵某一行（列）加到零一行（列）上去，记为 $r_{j} + kr_{i}$ （或 $c_{j} + kc_{i}$ ）</p>
+<p>以上三种变换统称为矩阵的初等变换。对行作的初等变换称为初等行变换，对列作的初等变换称为初等列变换。</p>
+<p><strong>定义12</strong>  如果矩阵 $A$ 经过有限次初等变换后变成矩阵 $B$ ，则称矩阵$A$ 与矩阵 $B$ 等价，记为 $A \sim B$ 。</p>
+<p>矩阵之间的等价关系具有下列性质：</p>
+<p>（1）反身性 $A \sim B$</p>
+<p>（2）对称性 若 $A \sim B$ ，则 $B \sim A$</p>
+<p>（3）传递性 若 $A \sim B , B \sim C$ ，则 $A \sim C$</p>
+<h3 id="初等矩阵"><a href="#初等矩阵" class="headerlink" title="初等矩阵"></a>初等矩阵</h3><p><strong>定义13</strong>  单位阵 $E$ 经过一次初等变换后所得到的矩阵称为初等矩阵。</p>
+<p>三种初等变换对应三种初等矩阵。</p>
+<p>第一种初等矩阵是互换 $E$ 的第 $i$ 行（列）与第 $j$ 行（列）后所得到的矩阵，记为 $E(i,j)$ 。</p>
+<p>第二种初等矩阵是用一个非零常数 $k$ 乘以 $E$ 的第 $i$ 行（列）后所得到的矩阵，记为 $E(i(k))$ 。</p>
+<p>第三种初等矩阵是用一个常数 $k$ 乘以 $E$ 的第 $i$ 行加到第 $j$ 行（或用一个常数乘以 $E$ 的第 $j$ 列加到第 $i$ 列）上去，记为 $E(j,i(k))$ 。</p>
+<p>不难验证 $E(i,j)E(i,j)=E, \quad E(i(k))E(i(\frac{1}{k}))=E, \quad E(j,i(k))E(j,i(-k))=E$ ，所以 $E^{-1}(i,j)=E(i,j), \quad E^{-1}(i(k))=E(i(\frac{1}{k})), \quad E^{-1}(j,i(k))=E(j,i(-k))$ 。</p>
+<p>因而初等矩阵都是非奇异矩阵，且它们的逆矩阵仍是同型的初等矩阵。</p>
+<p><strong>定理2  设 $A$ 是一个 $m \times n$ 矩阵，对矩阵 $A$ 作一次初等行变换，相当于在 $A$ 的左边乘以相应的 $m$ 阶初等矩阵；对矩阵 $A$ 作一次初等列变换，相当于在 $A$ 的右边乘以相应的 $n$ 阶初等矩阵</strong></p>
+<p><strong>推论  初等变换不改变方阵的奇异性</strong></p>
+<p><strong>定理3  方阵 $A$ 可逆的充分必要条件是 $A$ 可以经过有限次初等变换为单位矩阵 E</strong></p>
+<p><strong>推论1  方阵 $A$ 可逆的充分必要条件是 $A$ 可以表示为若干个初等矩阵的乘积</strong></p>
+<p><strong>推论2  $m \times n$ 矩阵 $A$ 与 $B$ 等价的充分必要条件是存在 $m$ 阶可逆矩阵 $P$ 和 $n$ 阶可逆矩阵 $Q$，使 PAQ=B</strong></p>
+<h3 id="用初等变换求逆矩阵"><a href="#用初等变换求逆矩阵" class="headerlink" title="用初等变换求逆矩阵"></a>用初等变换求逆矩阵</h3><p>前面我们知道了求逆矩阵的公式</p>
+<script type="math/tex; mode=display">
+A^{-1} = \frac{A^{*}}{\begin{vmatrix} A \end{vmatrix}}</script><p>对于 $n$ 阶非奇异矩阵 $A$ ，要计算一个 $n$ 阶行列式和 $n^{2}$ 个 $n-1$ 阶行列式，才能求出它的逆矩阵 $A^{-1}$ ，计算工作量是巨大的。下面，介绍一种比较简便的方法，就是用初等变换求逆矩阵。</p>
+<p>设 $A$ 是 $n$ 阶非奇异矩阵，因此 $A^{-1}$ 也是非奇异矩阵。由定理3的推论1知， $A^{-1}$ 可以表示为若干个初等矩阵的乘积。不妨设 $A^{-1}=P_{t} \cdots P_{2}P_{1}$ ，其中 $P_{i}(i=1,2, \cdots ,n)$ 都是初等矩阵，于是</p>
+<script type="math/tex; mode=display">
+P_{t} \cdots P_{2}P_{1}A=A^{-1}A=E      \\
+P_{t} \cdots P_{2}P_{1}E=A^{-1}E=A^{-1} \\</script><p>上式说明经过一系列初等行变换将可逆矩阵 $A$ 化为单位矩阵 $E$ ，也可以经过一系列初等行变换将单位矩阵 $E$ 化为 $A$ 的逆矩阵 $A^{-1}$ 。</p>
+<p>基于上述原理，可以这样来求矩阵 $A$ 的逆矩阵 $A^{-1}$ ：作一个 $n \times 2n$ 矩阵$(A,E)$ ，对其施行一系列初等行变换，当 $A$ 化为单位矩阵 $E$ 时，$E$ 就相应地化为 $A^{-1}$ ，即</p>
+<script type="math/tex; mode=display">
+(A,E) \rightarrow (E,A^{-1})</script><p>也可以用初等列变换求矩阵 $A$ 的逆矩阵 $A^{-1}$ ：作一个 $2n \times n$ 矩阵 $\begin{bmatrix} A \ E \end{bmatrix}$ ，对其施行一系列初等列变换，当 $A$ 化为单位矩阵 $E$ 时，单位矩阵 $E$ 就相应的化为 $A^{-1}$ ，即</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+A \\
+E \\
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+E \\
+A^{-1} \\
+\end{bmatrix}</script><p>若方阵 $A$ 可逆，则矩阵方程 $AX=B$ 的解为 $X=A^{-1}B$ ，可得</p>
+<script type="math/tex; mode=display">
+P_{t} \cdots P_{2}P_{1}B=A^{-1}B=X</script><p>得到矩阵方程 $AX=B$ 的解的另一种简便方法，即对 $\begin{bmatrix}  A,B\end{bmatrix}$ 施行一系列初等行变换，当 $A$ 化为单位矩阵 $E$ 时，矩阵 $B$ 就相应地化为 $A^{-1}B$ ，即</p>
+<script type="math/tex; mode=display">
+(A,B) \rightarrow (R,A^{-1}B)</script><p>同理，对 $\begin{bmatrix} A \ C \end{bmatrix}$ 施行一系列初等列变换，当 $A$ 化为单位矩阵 $E$ 时，矩阵 $C$ 就相应地化为矩阵 $XA=C$ 的解 $X=CA^{-1}$ ，即</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+A \\
+C \\
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+E       \\
+CA^{-1} \\
+\end{bmatrix}</script>
       
     </div>
     
@@ -679,7 +995,7 @@ A^{k} = \underbrace{AA \cdots A}_{k个A}</script><p>可以验证方阵的乘幂�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的定义"><span class="nav-number">1.</span> <span class="nav-text">矩阵的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的运算"><span class="nav-number">2.</span> <span class="nav-text">矩阵的运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的加法"><span class="nav-number">2.1.</span> <span class="nav-text">矩阵的加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数与矩阵的乘法"><span class="nav-number">2.2.</span> <span class="nav-text">数与矩阵的乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵与矩阵的乘法"><span class="nav-number">2.3.</span> <span class="nav-text">矩阵与矩阵的乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方阵的乘幂"><span class="nav-number">2.4.</span> <span class="nav-text">方阵的乘幂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的转置"><span class="nav-number">2.5.</span> <span class="nav-text">矩阵的转置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逆矩阵"><span class="nav-number">3.</span> <span class="nav-text">逆矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分块矩阵"><span class="nav-number">4.</span> <span class="nav-text">分块矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分块矩阵-1"><span class="nav-number">4.1.</span> <span class="nav-text">分块矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分块矩阵的乘法"><span class="nav-number">4.2.</span> <span class="nav-text">分块矩阵的乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分块对角矩阵"><span class="nav-number">4.3.</span> <span class="nav-text">分块对角矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的初等变换"><span class="nav-number">5.</span> <span class="nav-text">矩阵的初等变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的初等变换-1"><span class="nav-number">5.1.</span> <span class="nav-text">矩阵的初等变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初等矩阵"><span class="nav-number">5.2.</span> <span class="nav-text">初等矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用初等变换求逆矩阵"><span class="nav-number">5.3.</span> <span class="nav-text">用初等变换求逆矩阵</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的定义"><span class="nav-number">1.</span> <span class="nav-text">矩阵的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的运算"><span class="nav-number">2.</span> <span class="nav-text">矩阵的运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的加法"><span class="nav-number">2.1.</span> <span class="nav-text">矩阵的加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数与矩阵的乘法"><span class="nav-number">2.2.</span> <span class="nav-text">数与矩阵的乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵与矩阵的乘法"><span class="nav-number">2.3.</span> <span class="nav-text">矩阵与矩阵的乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方阵的乘幂"><span class="nav-number">2.4.</span> <span class="nav-text">方阵的乘幂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的转置"><span class="nav-number">2.5.</span> <span class="nav-text">矩阵的转置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逆矩阵"><span class="nav-number">3.</span> <span class="nav-text">逆矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分块矩阵"><span class="nav-number">4.</span> <span class="nav-text">分块矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分块矩阵-1"><span class="nav-number">4.1.</span> <span class="nav-text">分块矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分块矩阵的运算"><span class="nav-number">4.2.</span> <span class="nav-text">分块矩阵的运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分块矩阵的加法"><span class="nav-number">4.2.1.</span> <span class="nav-text">分块矩阵的加法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分块矩阵的数乘"><span class="nav-number">4.2.2.</span> <span class="nav-text">分块矩阵的数乘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分块矩阵的乘法"><span class="nav-number">4.2.3.</span> <span class="nav-text">分块矩阵的乘法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分块矩阵的转置"><span class="nav-number">4.2.4.</span> <span class="nav-text">分块矩阵的转置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分块对角矩阵"><span class="nav-number">4.3.</span> <span class="nav-text">分块对角矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵的初等变换"><span class="nav-number">5.</span> <span class="nav-text">矩阵的初等变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的初等变换-1"><span class="nav-number">5.1.</span> <span class="nav-text">矩阵的初等变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初等矩阵"><span class="nav-number">5.2.</span> <span class="nav-text">初等矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用初等变换求逆矩阵"><span class="nav-number">5.3.</span> <span class="nav-text">用初等变换求逆矩阵</span></a></li></ol></li></ol></div>
             
 
           </div>
