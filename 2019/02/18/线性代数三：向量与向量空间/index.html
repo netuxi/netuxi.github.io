@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数学,线性代数,向量组,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="向量组的线性相关性是研究线性方程组的基础。">
+<meta name="keywords" content="数学,线性代数,向量组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性代数三：向量与向量空间">
+<meta property="og:url" content="http://yoursite.com/2019/02/18/线性代数三：向量与向量空间/index.html">
+<meta property="og:site_name" content="netuxi">
+<meta property="og:description" content="向量组的线性相关性是研究线性方程组的基础。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-18T13:22:26.310Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="线性代数三：向量与向量空间">
+<meta name="twitter:description" content="向量组的线性相关性是研究线性方程组的基础。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/18/线性代数三：向量与向量空间/">
+
+
+
+
+
+  <title>线性代数三：向量与向量空间 | netuxi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">netuxi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Life is too short.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/18/线性代数三：向量与向量空间/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="netuxi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="netuxi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">线性代数三：向量与向量空间</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-18T12:26:00+08:00">
+                2019-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数学/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数学/线性代数/" itemprop="url" rel="index">
+                    <span itemprop="name">线性代数</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>向量组的线性相关性是研究线性方程组的基础。</p>
+<a id="more"></a>
+<h2 id="n-维向量及其运算"><a href="#n-维向量及其运算" class="headerlink" title="$n$ 维向量及其运算"></a>$n$ 维向量及其运算</h2><h3 id="n-维向量的概念"><a href="#n-维向量的概念" class="headerlink" title="$n$ 维向量的概念"></a>$n$ 维向量的概念</h3><p>众所周知，在二维平面上，当坐标系取定后，由原点引起的向量可以用两个有次序的实数 $a_{1},a_{2}$ 组成的数组来表示；在三维空间种，当坐标系确定后，由原点引出的向量可以用三个有次序的实数 $a_{1},a_{2},a_{3}$ 组成的数组来表示。然而实际问题中，有许多事物仅用三维的有序数组来表示是不够的。例如，一个含有 $n$ 个未知数的线性方程组 $a_{1}x_{1} + a_{2}x_{2} + \cdots + a_{n}x_{n} = b$ 可以用 $n + 1$ 个有次序的数 $a_{1},a_{2}, \cdots ,a_{n},b$ 来表示。于是，在这里引进 $n$ 维向量。</p>
+<p><strong>定义1</strong>  $n​$ 个有次序的数 $a_{1},a_{2}, \cdots ,a_{n}​$ 组成的数组称为 $n​$ 维向量。数 $a_{i}(i=1,2, \cdots ,n)​$ 称为向量的第 $i​$ 个分量（或坐标），分量为实数的向量称为实向量，分量为复数的向量称为复向量。一般用希腊字母 $\alpha ,\beta ,\gamma ,\zeta​$ 等表示向量。</p>
+<p>$n$ 维向量可以一列，称为列向量（或矩阵），即</p>
+<script type="math/tex; mode=display">
+\alpha
+=
+\begin{bmatrix}
+a_{1} \\
+a_{2} \\
+\vdots \\
+a_{n} \\
+\end{bmatrix}</script><p>也可以写成一行，称为行向量（或矩阵），即 ${\alpha}^T = \begin{bmatrix} a_{1},a_{2}, \cdots ,a_{n} \end{bmatrix} $ 。</p>
+<p>向量可以看作是一种特殊的矩阵。因而向量的运算可按矩阵的运算进行。</p>
+<p><strong>定义2</strong>  设两个 $n​$ 维向量 $\alpha = \begin{bmatrix} a_{1},a_{2}, \cdots ,a_{n} \end{bmatrix}^{T}​$ 、$\beta = \begin{bmatrix} b_{1},b_{2}, \cdots ,b_{n} \end{bmatrix}^{T}​$，如果 $a_{i}=b_{i}(i=1,2, \cdots ,n)​$，则称向量 $\alpha​$ 与 $\beta​$ 相等，记为 $\alpha = \beta​$ 。</p>
+<p>分量都是零的向量称为零向量，记为 $O = \begin{bmatrix} 0,0, \cdots ,0 \end{bmatrix}^{T}$ ，称向量 $\begin{bmatrix} -a_{1},-a_{2}, \cdots ,-a_{n} \end{bmatrix}^{T}$ 为向量 $\alpha = \begin{bmatrix} a_{1},a_{2}, \cdots ,a_{n} \end{bmatrix}^{T}$ 的负向量，记为 $-\alpha$ 。</p>
+<h3 id="n-维向量的运算"><a href="#n-维向量的运算" class="headerlink" title="$n$ 维向量的运算"></a>$n$ 维向量的运算</h3><p><strong>定义3</strong>  设 $n​$ 维向量 $\alpha = \begin{bmatrix} a_{1},a_{2}, \cdots ,a_{n} \end{bmatrix}^{T}​$ 、$\beta = \begin{bmatrix} b_{1},b_{2}, \cdots ,b_{n} \end{bmatrix}^{T}​$ ，则向量 ${\begin{bmatrix} a_{1}+b_{1},a_{2}+b_{2}, \cdots ,a_{n}+b_{n} \end{bmatrix}}^{T}​$ 称为 $\alpha​$ 与 $\beta​$ 的和，记为 $\alpha + \beta​$ ，即</p>
+<script type="math/tex; mode=display">
+\alpha + \beta
+=
+\begin{bmatrix}
+a_{1} + b_{1},a_{2} + b_{2}, \cdots ,a_{n} + b_{n}
+\end{bmatrix}^{T}</script><p>而 $\alpha$ 与 $\beta$ 的差可以看成 $\alpha$ 与 $-\beta$ 的和，即</p>
+<script type="math/tex; mode=display">
+\alpha - \beta
+=
+\begin{bmatrix}
+a_{1} - b_{1},a_{2} - b_{2}, \cdots ,a_{n} - b_{n}
+\end{bmatrix}^{T}</script><p><strong>定义4</strong>  设 $n​$ 维向量 $\alpha = \begin{bmatrix} a_{1},a_{2}, \cdots ,a_{n} \end{bmatrix}^{T}​$ ，$k​$ 是一个数，向量 $ \begin{bmatrix} ka_{1},ka_{2}, \cdots ,ka_{n} \end{bmatrix}^{T}​$ 称为数 $k​$ 与向量 $\alpha​$ 的乘积，记为 $k\alpha​$ ，即</p>
+<script type="math/tex; mode=display">
+k\alpha =
+\begin{bmatrix}
+ka_{1},ka_{2}, \cdots ,ka_{n}
+\end{bmatrix}^{T}</script><p>数 $k$ 与向量 $\alpha$ 相乘等于数 $k$ 乘以向量 $\alpha$ 的所有分量。</p>
+<p>向量的加法和数与向量的乘法两种运算统称为向量的线性运算，可以验证，这两种运算满足下列运算法则（设 $\alpha,\beta,\gamma$ 为 $n$ 维向量，$k,l$ 为实数）：</p>
+<ul>
+<li>$\alpha + \beta = \beta + \alpha$</li>
+<li>$(\alpha + \beta) + \gamma = \alpha + (\beta + \gamma)$</li>
+<li>$\alpha + O = \alpha$</li>
+<li>$\alpha + (-\alpha) = O$</li>
+<li>$1\alpha = \alpha$</li>
+<li>$k(l\alpha) = l(k\alpha) = (kl)\alpha$</li>
+<li>$k(\alpha + \beta) = k\alpha + k\beta$</li>
+<li>$(k+l)\alpha = k\alpha + l\alpha$</li>
+</ul>
+<h2 id="向量组的线性相关性"><a href="#向量组的线性相关性" class="headerlink" title="向量组的线性相关性"></a>向量组的线性相关性</h2><h3 id="向量组线性相关性的概念"><a href="#向量组线性相关性的概念" class="headerlink" title="向量组线性相关性的概念"></a>向量组线性相关性的概念</h3><p><strong>定义5</strong>  设 ${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{n},{\beta}​$ 是一组 $n​$ 维向量，如果存在一组数 $k{1},k{2}, \cdots ,k_{n}​$ 使</p>
+<script type="math/tex; mode=display">
+\beta = k_{1}{\alpha}_{1} + k_{2}{\alpha}_{2} + \cdots + k_{n}{\alpha}_{n}</script><p>则称向量 $\beta$ 是向量 ${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{n}$ 的线性组合，或者称向量 $\beta$ 可由向量  ${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{n}$ 线性表示。</p>
+<p><strong>定义6</strong> 设  ${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{m}​$ 是一组 $n​$ 维向量，如果存在一组不全为零的数 $k{1},k{2}, \cdots ,k_{m}​$ ，使</p>
+<script type="math/tex; mode=display">
+k_{1}{\alpha}_{1} + k_{2}{\alpha}_{2} + \cdots + k_{m}{\alpha}_{m} = O</script><p>则称向量组 ${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{m}$ 线性相关。如果上式只能在 $k{1},k{2}, \cdots ,k_{m}$ 全为零时成立，则称向量组 ${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{m}$ 线性无关。</p>
+<p>$n$ 维向量不是线性相关就是线性无关，线性相关和线性无关统称为向量组的线性相关性。</p>
+<p>根据向量组线性相关性定义，不难得到以下结论：</p>
+<ul>
+<li><p>对于只含一个向量 $\alpha$ 的向量组，当 $\alpha = O$ 时， $\alpha$ 是线性相关的；当 $\alpha \neq O$ 时，$\alpha$ 是线性无关的。</p>
+</li>
+<li><p>对于含有两个向量 ${\alpha}_{1},{\alpha}_{2}$ 的向量组，其线性相关性的充分必要条件是 ${\alpha}_{1},{\alpha}_{2}$ 的分量对应成比例，在几何上即两向量共线。</p>
+</li>
+<li><p>对于 $n$ 个 $n$ 维向量 $a_{j}={\begin{bmatrix} a_{1j},a_{2j}, \cdots ,a_{nj} \end{bmatrix}}^{T}(j=1,2, \cdots ,n)$ 所组成的向量组，${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{n}$ 线性相关的充分比要条件是由 ${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{n}$ 的分量所组成的方阵 $A$ 的行列式等于零，即</p>
+<script type="math/tex; mode=display">
+\begin{vmatrix} A \end{vmatrix}
+=
+\begin{vmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &        & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{vmatrix}
+=0</script><p>事实上，若 $k_{1}{\alpha}_{1} + k_{2}{\alpha}_{2} + \cdots + k_{n}{\alpha}_{n} = O$ ，即</p>
+<script type="math/tex; mode=display">
+\left\{ 
+\begin{array}{c}
+a_{11}k_{1}+a_{12}k_{2} + \cdots + a_{1n}k_{n} = 0\\
+a_{21}k_{1}+a_{22}k_{2} + \cdots + a_{2n}k_{n} = 0\\
+\cdots \\
+a_{n1}k_{1}+a_{n2}k_{2} + \cdots + a_{nn}k_{n} = 0\\
+\end{array}
+\right.</script><p>由克拉默法则可知，当且仅当系数行列式</p>
+<script type="math/tex; mode=display">
+\begin{vmatrix} A \end{vmatrix}
+=
+\begin{vmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &        & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{vmatrix}
+=0</script><p>时，上面的齐次方程才有非零解，即 ${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{n}$ 线性相关。同理，向量组 ${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{n}$ 线性无关的充分必要条件是由  ${\alpha}_{1},{\alpha}_{2}, \cdots ,{\alpha}_{n}$ 的分量所组成的方阵 $A$ 的行列式不等于零，即 $\begin{vmatrix} A \end{vmatrix} \neq 0$ 。</p>
+</li>
+</ul>
+<h3 id="向量组线性相关性的判别"><a href="#向量组线性相关性的判别" class="headerlink" title="向量组线性相关性的判别"></a>向量组线性相关性的判别</h3><p><strong>定理1  向量组 $\alpha_{1},\alpha_{2}, \cdots ,\alpha_{m}(m \geq 2)​$ 线性相关的充分必要条件是向量组 $\alpha_{1},\alpha_{2}, \cdots ,\alpha_{m}​$ 中至少有一个向量可以由其余 $m-1​$ 个向量线性表示</strong></p>
+<p><strong>定理2  在向量组 $\alpha_{1},\alpha_{2}, \cdots ,\alpha_{m}​$ 中，如果有一部分向量线性相关，则向量组 $\alpha_{1},\alpha_{2}, \cdots ,\alpha_{m}​$ 必线性相关（即部分相关则全体相关）</strong></p>
+<p><strong>推论1  如果向量组 $\alpha_{1},\alpha_{2}, \cdots ,\alpha_{m}$ 线性无关，则其中任一部分向量组都线性无关（即全体无关则部分无关）</strong></p>
+<p><strong>推论2  含有零向量的任何向量组都线性相关</strong></p>
+<p><strong>定理3  设有 $m$ 个 $n$ 维向量 $\alpha_{j} = \begin{bmatrix} a_{1j},a_{2j}, \cdots ,a_{nj} \end{bmatrix}^{T}(j=1,2, \cdots , m)$ ，延长 $r$ 个分量后，得到 $m$ 个 $n+r$ 维向量 $\beta_{j} = \begin{bmatrix} a_{1j},a_{2j}, \cdots ,a_{nj},a_{n+1,j}, \cdots , a_{n+r,j} \end{bmatrix}^{T}(j=1,2, \cdots , m)$ 。如果向量组 $\alpha_{1},\alpha_{2}, \cdots ,\alpha_{m}$ 线性无关，则向量组 $\beta_{1},\beta{2}, \cdots , \beta{m}$ 也线性无关</strong></p>
+<p><strong>定理4  当 $m &gt; n$ 时，任意 $m$ 个 $n$ 维向量 $\alpha_{1},\alpha_{2}, \cdots , \alpha_{m}$ 一定线性相关</strong></p>
+<p><strong>定义7</strong>  设有两个 $n$ 维向量组</p>
+<script type="math/tex; mode=display">
+A: \alpha_{1},\alpha_{2},\cdots,\alpha_{s} \\
+B: \beta_{1},\beta_{2},\cdots,\beta_{t}    \\</script><p>如果向量组 $B$ 中的每一个向量都可以由向量组 $A$ 线性表示，则称向量组 $B$ 可以由向量组 $A$ 线性表示。如果向量组 $B$ 可以由向量组 $A$ 线性表示，并且向量组 $A$ 也可以由向量组 $B$ 线性表示，则称向量组 $A$ 与向量组 $B$ 等价。</p>
+<p>显然，向量组之间的等价关系具有下列性质：</p>
+<ul>
+<li>反身性：向量组 $A$ 与向量组 $A$ 自身等价</li>
+<li>对称性：若向量组 $A$ 与向量组 $B$ 等价，则向量组 $A$ 与向量组 $B$等价</li>
+<li>传递性：若向量组 $A$ 与向量组 $B$ 等价，且向量组 $B$ 与向量组 $C$ 等价，则向量组 $A$ 与向量组 $C$ 等价</li>
+</ul>
+<h3 id="最大线性无关组"><a href="#最大线性无关组" class="headerlink" title="最大线性无关组"></a>最大线性无关组</h3><p>一个线性相关的向量组，它的一部分向量组却有可能是线性无关的，而且这种线性无关的部分向量组可能不唯一，其中必有一个所含的向量个数最大。</p>
+<p><strong>定义8</strong>  设 $\alpha_{1},\alpha_{2},\cdots,\alpha_{r}​$ 是向量组 $A​$ 中的部分向量组，如果满足条件：</p>
+<ul>
+<li>$\alpha_{1},\alpha_{2},\cdots,\alpha_{r}$ 线性无关</li>
+<li>向量组 $A$ 中的任意向量 $\alpha$ 都可以由 $\alpha_{1},\alpha_{2},\cdots,\alpha_{r}$ 线性表示</li>
+</ul>
+<p>则称 $\alpha_{1},\alpha_{2},\cdots,\alpha_{r}$ 为向量组 $A$ 的最大线性无关向量组，简称为最大无关组。</p>
+<p>若向量组只包含零向量，则无最大无关组。若向量组线性无关，则其自身即为最大无关组。</p>
+<p><strong>定理5  设两个 $n​$ 维向量组 $A:\alpha_{1},\alpha_{2},\cdots,\alpha_{r}​$ 与 $B:\beta_{1}\beta_{2},\cdots,\beta_{s}​$ ，如果向量组 $A​$ 可以由向量组 $B​$ 线性表示，且向量组 $A​$ 线性无关，则 $r \leq s​$</strong></p>
+<p>向量组的最大无关组具有以下性质：</p>
+<ul>
+<li>向量组与它的最大无关组等价</li>
+<li>向量组的任意两个最大无关组等价</li>
+<li>向量组的任意两个最大无关组所含向量个数相同</li>
+</ul>
+<h2 id="秩"><a href="#秩" class="headerlink" title="秩"></a>秩</h2><p><strong>定义9</strong>  向量组 $\alpha_{1},\alpha_{2},\cdots,\alpha_{m}​$ 的最大无关组所含向量个数称为该向量组的秩，记为 $R(\alpha_{1},\alpha_{2},\cdots,\alpha_{m})​$ 。</p>
+<p>若向量组只包含零向量，则规定该向量组的秩为零。</p>
+<p>若 $R(\alpha_{1},\alpha_{2},\cdots,\alpha_{m}) = m$ ，则向量组 $\alpha_{1},\alpha_{2},\cdots,\alpha_{m}$ 线性无关，并且 $\alpha_{1},\alpha_{2},\cdots,\alpha_{m}$ 就是该向量组的一个最大线性无关组。若 $R(\alpha_{1},\alpha_{2},\cdots,\alpha_{m}) &lt; m$ ，则向量组 $\alpha_{1},\alpha_{2},\cdots,\alpha_{m}$ 线性相关。</p>
+<p>向量组的秩具有以下性质：</p>
+<ul>
+<li>设向量组 $A$ 的秩为 $r_{1}$，向量组 $B$ 的秩为$r_2$ ，若向量组 $A$ 可由向量组 $B$ 线性表示，则 $r_{1} \leq r_{2}$</li>
+<li>等价向量组具有相同的秩</li>
+</ul>
+<p><strong>定义10</strong>  矩阵 $A$ 的行向量组的秩称为矩阵 $A$ 的行秩，矩阵 $A$ 的列向量组的秩称为矩阵 $A$ 的列秩。</p>
+<p><strong>定义11</strong>  在 $m \times n​$ 矩阵 $A​$ 中任取 $k​$ 行 $k​$ 列（$k \leq min(m,n)​$），位于这些行列交叉处的元素所构成的 $k​$ 阶行列式称为矩阵 $A​$ 的一个 $k​$ 阶子式。</p>
+<p>那么 $m \times n$ 矩阵$A$ 共有  $C_{k}^{m} \times C_{k}^{n} $ 个 $k$ 阶子式。</p>
+<p><strong>定理6  如果矩阵 $A$ 中有一个 $r$ 阶子式 $D$ 不为零，且所有含有 $D$ 的 $r + 1$ 阶子式（如果有的话）全为零，则矩阵 $A$ 的行秩（或列秩）等于 $r$</strong></p>
+<p><strong>推论1  若矩阵 $A$ 中有一个 $r$ 阶子式非零，则 $R(A) \geq r$</strong></p>
+<p><strong>推论2  若矩阵 $A$ 中的 $r$ 阶子式全为零，则 $R(A) &lt; r$</strong></p>
+<p>由此可见，矩阵的秩就是其非零子式的最高阶数。显然，$A$ 为 $n$ 阶方阵，$\begin{vmatrix} A \end{vmatrix}$ 即为 $A$ 的最高阶子式。当 $\begin{vmatrix} A \end{vmatrix} \neq 0$ 时， $R(A) = n$ ，称 $A$ 为满秩矩阵（即 $A$ 为非奇异矩阵或可逆矩阵）；当 $\begin{vmatrix} A \end{vmatrix} = 0$ 时，$R(A)&lt; n$，称 $A$ 为降秩矩阵（即 $A$ 为奇异矩阵或不可逆矩阵）。</p>
+<p><strong>定理7  若矩阵 $A$ 经过若干次初等变换为矩阵 $B$ ，则矩阵 $A$ 的秩不变，即 R(A) = A(B)</strong></p>
+<p>将矩阵</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+-1 & 4  & 2  & 0  & 9  & 2  \\
+0  & 0  & 5  & 3  & -1 & 8  \\
+0  & 0  & 0  & 6  & 0  & -1 \\
+0  & 0  & 0  & 0  & 0  & 0  \\
+\end{bmatrix}</script><p>这样的矩阵称为行阶梯矩阵，其特点为：</p>
+<ul>
+<li>元素全为零的行（称为零行）都在非零行下方</li>
+<li>非零行的首个非零元（非零行最左边的非零元素）所在的列中，位于该非零元下方以及它们左边的所有元素全为零</li>
+</ul>
+<p>由定理6可知，行阶梯矩阵的秩即为该矩阵中非零行的行数。</p>
+<p>由于初等变换不改变矩阵的秩，因而只需将矩阵通过初等变换称为行阶梯矩阵，通过计算非零行的行数来求得矩阵的秩。</p>
+<p>将矩阵</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+1 & 0 & 1 & 0 \\
+0 & 1 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+\end{bmatrix}</script><p>称为最简矩阵，其特点是非零行的第一个非零元为1，且这些非零元所在的列的其他元素都为0。</p>
+<p>不难证明，对于任何矩阵，总可以经过有限次初等行变换化为行阶梯矩阵和行最简形矩阵。</p>
+<p>将上述矩阵A经过有初等列变换化为矩阵B</p>
+<script type="math/tex; mode=display">
+B=
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{bmatrix}</script><p>称为矩阵 $B$ 为矩阵 $A$ 的标准型，其特点是：$D$ 的左上角为一个单位矩阵，其余元素均为零。对于矩阵 $A_{m \times n}$ 总可以经过有限次初等变换（行变换和列变换）化为标准型</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+E_{r} & O \\
+O     & O \\
+\end{bmatrix}_{m \times n}</script><p>其中 $r$ 就是行阶梯矩阵 $B$ 中非零行的行数，也就是矩阵 $A$ 的秩 $R(A)$ 。可见矩阵 $A$ 的标准型是由矩阵 $A$ 唯一确定的。</p>
+<p>对于向量组 $\alpha_{1},\alpha_{2},\cdots,\alpha_{n}​$，作为一个矩阵</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+\alpha_{1} & \alpha_{2} & \cdots & \alpha_{n} \\
+\end{bmatrix}</script><p>用初等行变换将矩阵 $A​$ 化为行阶梯矩阵，其秩为向量组 $\alpha_{1},\alpha_{2},\cdots,\alpha_{n}​$ 的秩，根据最终的行阶梯矩阵可以得到向量组 $\alpha_{1},\alpha_{2},\cdots,\alpha_{n}​$ 的一个最大无关组。</p>
+<h2 id="向量空间"><a href="#向量空间" class="headerlink" title="向量空间"></a>向量空间</h2><h3 id="向量空间的概念"><a href="#向量空间的概念" class="headerlink" title="向量空间的概念"></a>向量空间的概念</h3><p><strong>定义12</strong>  设 $V$ 是 $n$ 维向量的非空集合，$R$ 为实数域，如果满足下面条件：</p>
+<ul>
+<li>任取 $\alpha,\beta \in V$ ，有 $\alpha + \beta \in V$</li>
+<li>任取 $\alpha \in V,k \in R$ ，有 $k\alpha \in V$</li>
+</ul>
+<p>则称 $V$ 是向量空间。</p>
+<p>向量空间是 $n$ 维向量的非空集合，对于向量的加法和数乘两种运算封闭。</p>
+<h3 id="基、维数与坐标"><a href="#基、维数与坐标" class="headerlink" title="基、维数与坐标"></a>基、维数与坐标</h3><p>对于向量组，有最大无关组和向量组的秩的概念。对于向量空间，相应的概念就是向量空间的基与维数。</p>
+<p><strong>定义13</strong>  设 $V$ 是向量空间，向量 $\alpha_{1},\alpha_{2},\cdots,\alpha_{r} \in V$ ，如果满足</p>
+<ul>
+<li>$\alpha_{1},\alpha_{2},\cdots,\alpha_{r}$ 线性无关</li>
+<li>对于任意 $\alpha \in V​$ ，$\alpha​$ 可由  $\alpha_{1},\alpha_{2},\cdots,\alpha_{r}​$ 线性表示</li>
+</ul>
+<p>则称 $\alpha_{1},\alpha_{2},\cdots,\alpha_{r}$ 为向量空间 $V$ 的一个基， $r$ 为向量空间的维数，而称 $V$ 为 $r$ 维向量空间。</p>
+<p>一个向量空间的基不是唯一的，担任意两个基所含的向量的个数是相同的。由此可见，向量空间的维数是唯一的。应当注意，向量的维数是指向量所含分量的个数，它与向量空间的维数是两个不同的概念，不要混淆起来。</p>
+<p>如果向量 $\alpha_{1},\alpha_{2},\cdots,\alpha_{n}​$ 是 $R^{n}​$ 的一个基，则 $R^{n}​$ 中的任一向量 $\alpha​$ 可由 $\alpha_{1},\alpha_{2},\cdots,\alpha_{n}​$ 线性表示，且表示方法是唯一的。在此给出向量坐标的概念。</p>
+<p><strong>定义14</strong>  设向量 $\alpha_{1},\alpha_{2},\cdots,\alpha_{r}​$ 是 $r​$ 维向量空间 $V​$ 的一个基，对于任意 $\alpha \in V​$ ， $\alpha​$ 都可以唯一地表示为</p>
+<script type="math/tex; mode=display">
+\alpha = x_{1}\alpha_{1} + x_{2}\alpha_{2} + \cdots + x_{r}\alpha_{r}</script><p>则有序数组 $x_{1},x_{2},\cdots,x_{r}$ 为向量 $\alpha$ 关于基 $\alpha_{1},\alpha_{2},\cdots,\alpha_{r}$ 的坐标，记为$(x_{1},x_{2},\cdots,x_{r})$ 。</p>
+<h3 id="子空间"><a href="#子空间" class="headerlink" title="子空间"></a>子空间</h3><p><strong>定义15</strong>  设有向量空间 $V_{1}$ 和 向量空间 $V_{2}$ ，如果 $V_{1}$ 是 $V_{2}$ 的子集，则称 $V_{1}$ 是 $V_{2}$ 的子空间。</p>
+<p>任何由 $n$ 维向量所组成的向量空间 $V$ ，因 $V \in R^{n}$ ，故称 $V$ 是 $R^{n}$ 的子空间。 $R^{n}$ 也是它自身的子空间。单独一个零向量组成的集合 $\{0\}$ 也是 $R^{n}$ 的子空间。这两个子空间称为 $R^{n}$ 的平凡子空间。而 $R^{n}$ 的其他自空间称为非平凡子空间。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/线性代数/" rel="tag"># 线性代数</a>
+          
+            <a href="/tags/向量组/" rel="tag"># 向量组</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/16/线性代数二：矩阵及其运算/" rel="next" title="线性代数二：矩阵及其运算">
+                <i class="fa fa-chevron-left"></i> 线性代数二：矩阵及其运算
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">netuxi</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/netuxi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:820256744@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#n-维向量及其运算"><span class="nav-number">1.</span> <span class="nav-text">$n$ 维向量及其运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#n-维向量的概念"><span class="nav-number">1.1.</span> <span class="nav-text">$n$ 维向量的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-维向量的运算"><span class="nav-number">1.2.</span> <span class="nav-text">$n$ 维向量的运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量组的线性相关性"><span class="nav-number">2.</span> <span class="nav-text">向量组的线性相关性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量组线性相关性的概念"><span class="nav-number">2.1.</span> <span class="nav-text">向量组线性相关性的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向量组线性相关性的判别"><span class="nav-number">2.2.</span> <span class="nav-text">向量组线性相关性的判别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大线性无关组"><span class="nav-number">2.3.</span> <span class="nav-text">最大线性无关组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#秩"><span class="nav-number">3.</span> <span class="nav-text">秩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量空间"><span class="nav-number">4.</span> <span class="nav-text">向量空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量空间的概念"><span class="nav-number">4.1.</span> <span class="nav-text">向量空间的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基、维数与坐标"><span class="nav-number">4.2.</span> <span class="nav-text">基、维数与坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子空间"><span class="nav-number">4.3.</span> <span class="nav-text">子空间</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">netuxi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

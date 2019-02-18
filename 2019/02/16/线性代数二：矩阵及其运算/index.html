@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="数学,线性代数,行列式,">
+  <meta name="keywords" content="数学,线性代数,矩阵,">
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="矩阵是线性代数中最重要的概念之一，其理论已逐渐成为数学领域的一个重要分支。">
-<meta name="keywords" content="数学,线性代数,行列式">
+<meta name="keywords" content="数学,线性代数,矩阵">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性代数二：矩阵及其运算">
 <meta property="og:url" content="http://yoursite.com/2019/02/16/线性代数二：矩阵及其运算/index.html">
 <meta property="og:site_name" content="netuxi">
 <meta property="og:description" content="矩阵是线性代数中最重要的概念之一，其理论已逐渐成为数学领域的一个重要分支。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-17T14:23:18.255Z">
+<meta property="og:updated_time" content="2019-02-18T04:33:46.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性代数二：矩阵及其运算">
 <meta name="twitter:description" content="矩阵是线性代数中最重要的概念之一，其理论已逐渐成为数学领域的一个重要分支。">
@@ -419,7 +419,7 @@ a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn} \\
 \end{bmatrix}</script><p>矩阵加法满足：</p>
 <p>（1） $A+B=B+A$</p>
 <p>（2） $(A+B)+C=A+(B+C)$</p>
-<p>（3） $A+O=A$</p>
+<p>（3） $A+O=A​$</p>
 <p>（4） $A+(-A)=O$</p>
 <h3 id="数与矩阵的乘法"><a href="#数与矩阵的乘法" class="headerlink" title="数与矩阵的乘法"></a>数与矩阵的乘法</h3><p><strong>定义4</strong>  设矩阵 $A=(a_{ij})_{m \times n}$ ，规定 $(ka_{ij})_{m \times n}$ 为数 $k$ 与矩阵 $A$ 的乘积，记为 $kA$ 或 $Ak$ ，即</p>
 <script type="math/tex; mode=display">
@@ -464,12 +464,12 @@ b_{sj} \\
 <p>（1）矩阵 $A \times B$ 不一定等于 $B \times A$ </p>
 <p>（2）不能由 $AB=O$ 得出 $A=O$ 或 $B=O$</p>
 <p>（3）不能由 $BA=BC，B \neq O$ 得出 $A \neq C$</p>
-<p>矩阵的乘法虽然不满足交换律，担任然满足（其中 $A,B$ 为矩阵，$k$ 为常数）：</p>
-<p>（1） $(AB)C=A(BC)$</p>
-<p>（2） $(kA)B=A(kB)=kAB$</p>
-<p>（3）A(B+C)=AB+AC，(A+B)C=AC+BC</p>
-<p>（4）$\begin{vmatrix} AB \end{vmatrix}=\begin{vmatrix} A \end{vmatrix}\begin{vmatrix} B \end{vmatrix}$ （A，B为同阶方阵）</p>
-<p>若 $A,B$ 为 $n$ 阶方阵，通常 $AB \neq BA$ ，然而总有 $\begin{vmatrix} AB \end{vmatrix} = \begin{vmatrix} A \end{vmatrix}\begin{vmatrix} B \end{vmatrix} $ 成立。由 $AB=O$ 不能得出 $A=O$ 或 $B=O$ ，但是由 $\begin{vmatrix} AB \end{vmatrix} = 0$ 可以得出 $\begin{vmatrix} A \end{vmatrix} = 0$ 或 $\begin{vmatrix} B \end{vmatrix} = 0$ 。</p>
+<p>矩阵的乘法虽然不满足交换律，担任然满足（其中 $A,B​$ 为矩阵，$k​$ 为常数）：</p>
+<p>（1） $(AB)C=A(BC)​$</p>
+<p>（2） $(kA)B=A(kB)=kAB​$</p>
+<p>（3） $A(B+C)=AB+AC，(A+B)C=AC+BC$</p>
+<p>（4） $\begin{vmatrix} AB \end{vmatrix}=\begin{vmatrix} A \end{vmatrix}\begin{vmatrix} B \end{vmatrix}$ （A，B为同阶方阵）</p>
+<p>若 $A,B​$ 为 $n​$ 阶方阵，通常 $AB \neq BA​$ ，然而总有 $\begin{vmatrix} AB \end{vmatrix} = \begin{vmatrix} A \end{vmatrix}\begin{vmatrix} B \end{vmatrix} ​$ 成立。由 $AB=O​$ 不能得出 $A=O​$ 或 $B=O​$ ，但是由 $\begin{vmatrix} AB \end{vmatrix} = 0​$ 可以得出 $\begin{vmatrix} A \end{vmatrix} = 0​$ 或 $\begin{vmatrix} B \end{vmatrix} = 0​$ 。</p>
 <p>当我们定义了矩阵与矩阵的乘法，$m$ 个方程 $n$ 个未知数的线性方程组也可以用矩阵与矩阵相乘来表示。</p>
 <script type="math/tex; mode=display">
 \left\{
@@ -826,7 +826,7 @@ CA^{-1} \\
           
             <a href="/tags/线性代数/" rel="tag"># 线性代数</a>
           
-            <a href="/tags/行列式/" rel="tag"># 行列式</a>
+            <a href="/tags/矩阵/" rel="tag"># 矩阵</a>
           
         </div>
       
@@ -848,6 +848,10 @@ CA^{-1} \\
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/18/线性代数三：向量与向量空间/" rel="prev" title="线性代数三：向量与向量空间">
+                线性代数三：向量与向量空间 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -924,7 +928,7 @@ CA^{-1} \\
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -946,7 +950,7 @@ CA^{-1} \\
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
